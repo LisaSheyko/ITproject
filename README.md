@@ -26,5 +26,5 @@
 
 ## Инструментарий
 * Visual Studio 2015
-* C++ / C# + Windows Forms
+* C++ / C# + Windows Forms Либо C# + WPF
 * Возможно, Python для вспомогательной обработки информации
