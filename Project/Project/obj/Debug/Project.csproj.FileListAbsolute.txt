@@ -1,0 +1,14 @@
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\Project.exe.config
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\Project.exe
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\Project.pdb
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\MainWindow.g.cs
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\App.g.cs
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project_MarkupCompile.cache
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project_MarkupCompile.lref
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\MainWindow.baml
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.g.resources
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.Properties.Resources.resources
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.csproj.GenerateResource.Cache
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.exe
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.pdb
