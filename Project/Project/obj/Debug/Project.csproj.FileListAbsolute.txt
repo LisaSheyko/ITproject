@@ -12,3 +12,11 @@ G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.Properties.Resources.r
 G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.csproj.GenerateResource.Cache
 G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.exe
 G:\YandexDisk\ITproject\Project\Project\obj\Debug\Project.pdb
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\EntityFramework.dll
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\EntityFramework.SqlServer.dll
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\System.Data.SQLite.dll
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\System.Data.SQLite.EF6.dll
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\System.Data.SQLite.Linq.dll
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\EntityFramework.xml
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\System.Data.SQLite.xml
