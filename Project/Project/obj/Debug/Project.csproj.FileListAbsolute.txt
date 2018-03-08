@@ -20,3 +20,7 @@ G:\YandexDisk\ITproject\Project\Project\bin\Debug\System.Data.SQLite.Linq.dll
 G:\YandexDisk\ITproject\Project\Project\bin\Debug\EntityFramework.xml
 G:\YandexDisk\ITproject\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
 G:\YandexDisk\ITproject\Project\Project\bin\Debug\System.Data.SQLite.xml
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\registration.g.cs
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\App.baml
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\Dictionary.baml
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\registration.baml

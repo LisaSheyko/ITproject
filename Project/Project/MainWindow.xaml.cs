@@ -20,30 +20,14 @@ namespace Project
 {
     public partial class MainWindow : Window
     {
-        private String dbFileName;
-        private SQLiteConnection m_dbConn;
-        private SQLiteCommand m_sqlCmd;
         public MainWindow()
         { // При инициализации окна подключаемся к бд. При необходимости создаем бд и таблицу пользователей
+            //((App)Application.Current)
             InitializeComponent();
-            m_dbConn = new SQLiteConnection();
-            m_sqlCmd = new SQLiteCommand();
-            dbFileName = "dbSQLite";
-            if (!File.Exists(dbFileName))
-                SQLiteConnection.CreateFile(dbFileName);
-            try
+            string res = dbManager.start();
+            if (res != "")
             {
-                m_dbConn = new SQLiteConnection("Data Source=" + dbFileName + ";Version=3;");
-                m_dbConn.Open();
-                m_sqlCmd.Connection = m_dbConn;
-
-                m_sqlCmd.CommandText = @"CREATE TABLE IF NOT EXISTS Users 
-                    (id INTEGER PRIMARY KEY AUTOINCREMENT, LOGIN TEXT, PASSWORD TEXT)";
-                m_sqlCmd.ExecuteNonQuery();
-            }
-            catch (SQLiteException ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(res);
             }
         }
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -64,8 +48,7 @@ namespace Project
             try
             {
                 sqlQuery = "SELECT password FROM Users where login = '" + login + "'";
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlQuery, m_dbConn);
-                adapter.Fill(dTable);
+                dTable = dbManager.execute(sqlQuery);
                 if (dTable.Rows.Count == 0 || dTable.Rows[0].ItemArray[0].ToString() != pass)
                 {
                     incorrectPassLabel.Visibility = Visibility.Visible;
@@ -77,6 +60,13 @@ namespace Project
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            registration reg = new registration();
+            reg.Owner = this;
+            reg.ShowDialog();
         }
     }
 }
