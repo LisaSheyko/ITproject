@@ -24,3 +24,5 @@ G:\YandexDisk\ITproject\Project\Project\obj\Debug\registration.g.cs
 G:\YandexDisk\ITproject\Project\Project\obj\Debug\App.baml
 G:\YandexDisk\ITproject\Project\Project\obj\Debug\Dictionary.baml
 G:\YandexDisk\ITproject\Project\Project\obj\Debug\registration.baml
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\personalAccWindows.g.cs
+G:\YandexDisk\ITproject\Project\Project\obj\Debug\personalAccWindows.baml

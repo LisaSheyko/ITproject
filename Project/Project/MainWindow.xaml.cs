@@ -54,7 +54,9 @@ namespace Project
                     incorrectPassLabel.Visibility = Visibility.Visible;
                     return;
                 }
-                MessageBox.Show("END:)");
+                personalAccWindows acc = new personalAccWindows();
+                acc.Show();
+                this.Close();
             }
             catch (SQLiteException ex)
             {

@@ -46,7 +46,10 @@ namespace Project
                 incorrectPassLabel.Content = "Логин занят!";
                 incorrectPassLabel.Visibility = Visibility.Visible;
                 return;
-            }  
+            }
+            dbManager.execute("insert into users (login, password, name, class) values ('" +
+                logBox.Text + "','" + passBox1.Text + "','" + nameBox.Text + "'," + comboBox.Text + ")");
+            this.Close();
         }
 
         private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
