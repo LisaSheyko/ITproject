@@ -47,14 +47,16 @@ namespace Project
 
             try
             {
-                sqlQuery = "SELECT password FROM Users where login = '" + login + "'";
+                sqlQuery = "SELECT id, password, name FROM Users where login = '" + login + "'";
                 dTable = dbManager.execute(sqlQuery);
-                if (dTable.Rows.Count == 0 || dTable.Rows[0].ItemArray[0].ToString() != pass)
+                if (dTable.Rows.Count == 0 || dTable.Rows[0].ItemArray[1].ToString() != pass)
                 {
                     incorrectPassLabel.Visibility = Visibility.Visible;
                     return;
                 }
+                ((App)Application.Current).id = Convert.ToInt32(dTable.Rows[0].ItemArray[0]);
                 personalAccWindows acc = new personalAccWindows();
+                acc.Title = dTable.Rows[0].ItemArray[2].ToString();
                 acc.Show();
                 this.Close();
             }

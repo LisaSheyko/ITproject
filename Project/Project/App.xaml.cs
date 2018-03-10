@@ -13,5 +13,6 @@ namespace Project
     /// </summary>
     public partial class App : Application
     {
+        public int id;
     }
 }

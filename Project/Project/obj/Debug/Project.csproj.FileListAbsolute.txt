@@ -26,3 +26,6 @@ G:\YandexDisk\ITproject\Project\Project\obj\Debug\Dictionary.baml
 G:\YandexDisk\ITproject\Project\Project\obj\Debug\registration.baml
 G:\YandexDisk\ITproject\Project\Project\obj\Debug\personalAccWindows.g.cs
 G:\YandexDisk\ITproject\Project\Project\obj\Debug\personalAccWindows.baml
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\CalcBinding.dll
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\DynamicExpresso.Core.dll
+G:\YandexDisk\ITproject\Project\Project\bin\Debug\DynamicExpresso.Core.xml
