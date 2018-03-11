@@ -4,41 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
-        xmlns:CalcBinding="clr-namespace:CalcBinding;assembly=CalcBinding" x:Class="Project.personalAccWindows"
+        x:Class="Project.personalAccWindows"
         mc:Ignorable="d"
-        Title="Личный кабинет" Height="300" Width="650">
+        Title="Личный кабинет" Height="315" Width="660" Background="{DynamicResource defBack}">
     <Window.Resources>
         <AlternationConverter x:Key="AlternationConverter"/>
+        <local:simpleConv x:Key="simpleConv"/>
     </Window.Resources>
-    <Window.Background>
-        <StaticResource ResourceKey="defBack"/>
-    </Window.Background>
     <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="325"/>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" MinWidth="325" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="90" MinHeight="90"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*" MinHeight="50"/>
-        </Grid.RowDefinitions>
-        <GridSplitter Grid.Column="1"  Grid.Row="0" ShowsPreview="False" Width="3"
-        HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.RowSpan="3"/>
-        <GridSplitter Grid.Row="1" Grid.ColumnSpan="3" Height="3"
-        HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-        <Canvas Grid.Column="0" Grid.Row="0">
-            <Button x:Name="button" Content="Теоретический справочник" Canvas.Left="10" Canvas.Top="10" Style="{StaticResource simpleBtnStyle}" Margin="0" Background="#FFDDDDDD"/>
-            <Button x:Name="button1" Content="Задачи" Canvas.Left="10" Canvas.Top="54" Width="177" Style="{StaticResource ResourceKey=btnStyle}" Height="28" Margin="0"/>
-        </Canvas>
-        <Canvas Grid.RowSpan="3" Grid.Column="2" Background="White">
-            <TextBlock><Run Text="Статистика"/></TextBlock>
-        </Canvas>
-        <Canvas x:Name="canvas" Grid.Row="2">
-            <TextBlock x:Name="textBlock" Height="126" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="10" Width="300" Background="White" Opacity="0.3" TextAlignment="Right" Margin="0"/>
-            <TextBox x:Name="textBox" Height="25" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="141" Width="269" FontStyle="Italic" TextAlignment="Right"/>
-            <Button x:Name="button2" Content=" Ок " Canvas.Left="284" Canvas.Top="141" Width="Auto" Height="25" Style="{StaticResource ResourceKey=btnStyle}" RenderTransformOrigin="1.053,0.52"/>
-        </Canvas>
+        <Button x:Name="button" Content="Теоретический справочник" Style="{StaticResource simpleBtnStyle}" Margin="10,10,0,0" Width="179" Height="31" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0"/>
+        <Button x:Name="button1" Content="Задачи" Style="{StaticResource btnStyle}" Margin="194,10,0,0" Width="117" Height="31" VerticalAlignment="Top" BorderThickness="1" Padding="0" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Background="White" Opacity="0.3" TextAlignment="Right" Margin="5,77,10,40" ScrollViewer.CanContentScroll="True"/>
+        <TextBox x:Name="textBox" TextWrapping="Wrap" FontStyle="Italic" TextAlignment="Right" Margin="4,234,43,10" VerticalAlignment="Bottom" Height="25"/>
+        <Button x:Name="button2" Content=" Ок " Style="{StaticResource ResourceKey=btnStyle}" RenderTransformOrigin="1.053,0.52" Margin="283,234,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="28" Height="25"/>
+        <Label x:Name="label" Content="Выберите режим:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="107"/>
+        <RadioButton x:Name="radioButton" Content="Статистика" HorizontalAlignment="Left" Margin="122,52,0,0" VerticalAlignment="Top" Height="20" Checked="radioButton_Checked"/>
+        <RadioButton x:Name="radioButton1" Content="График" HorizontalAlignment="Left" Margin="206,52,0,0" VerticalAlignment="Top" Height="20" Checked="radioButton1_Checked"/>
+        <Grid Grid.Column="1" Background="White">
+            <Image x:Name="imgProgress" Margin="10, 10, 10, 10" Visibility="Hidden"/>
+            <TextBlock x:Name="txtBlockStat" Margin="10" TextWrapping="Wrap" Visibility="Hidden">
+                Тут будет
+                <LineBreak />
+                различная информация 
+                <LineBreak />
+                <Run FontStyle="Italic"> по результатам ученика.</Run>
+            </TextBlock>
+        </Grid>
     </Grid>
 </Window>

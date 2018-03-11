@@ -37,10 +37,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CalcBinding, Version=2.3.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CalcBinding.2.3.0.1\lib\net45\CalcBinding.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="DynamicExpresso.Core, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DynamicExpresso.Core.1.3.0.0\lib\net40\DynamicExpresso.Core.dll</HintPath>
       <Private>True</Private>
@@ -93,6 +89,7 @@
     <Compile Include="registration.xaml.cs">
       <DependentUpon>registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="simpleConv.cs" />
     <Page Include="Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
