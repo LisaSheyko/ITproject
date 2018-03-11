@@ -21,8 +21,7 @@ namespace Project
     public partial class MainWindow : Window
     {
         public MainWindow()
-        { // При инициализации окна подключаемся к бд. При необходимости создаем бд и таблицу пользователей
-            //((App)Application.Current)
+        {
             InitializeComponent();
             string res = dbManager.start();
             if (res != "")
@@ -47,14 +46,14 @@ namespace Project
 
             try
             {
-                sqlQuery = "SELECT id, password, name FROM Users where login = '" + login + "'";
+                sqlQuery = "SELECT uk, password, name FROM Users where login = '" + login + "'";
                 dTable = dbManager.execute(sqlQuery);
                 if (dTable.Rows.Count == 0 || dTable.Rows[0].ItemArray[1].ToString() != pass)
                 {
                     incorrectPassLabel.Visibility = Visibility.Visible;
                     return;
                 }
-                ((App)Application.Current).id = Convert.ToInt32(dTable.Rows[0].ItemArray[0]);
+                ((App)Application.Current).user = dTable;
                 personalAccWindows acc = new personalAccWindows();
                 acc.Title = dTable.Rows[0].ItemArray[2].ToString();
                 acc.Show();

@@ -16,7 +16,7 @@ namespace Project
         static SQLiteCommand m_sqlCmd;
 
         public static string start ()
-        {
+        { // необходимо (?) поддерживать в актуальном состоянии структуру созданных таблиц
             m_dbConn = new SQLiteConnection();
             m_sqlCmd = new SQLiteCommand();
             dbFileName = "dbSQLite";

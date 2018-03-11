@@ -26,13 +26,15 @@
         <RadioButton x:Name="radioButton1" Content="График" HorizontalAlignment="Left" Margin="206,52,0,0" VerticalAlignment="Top" Height="20" Checked="radioButton1_Checked"/>
         <Grid Grid.Column="1" Background="White">
             <Image x:Name="imgProgress" Margin="10, 10, 10, 10" Visibility="Hidden"/>
-            <TextBlock x:Name="txtBlockStat" Margin="10" TextWrapping="Wrap" Visibility="Hidden">
+            <TextBlock x:Name="txtBlockStat" Margin="10,41,10,10" TextWrapping="Wrap">
                 Тут будет
                 <LineBreak />
                 различная информация 
                 <LineBreak />
                 <Run FontStyle="Italic"> по результатам ученика.</Run>
             </TextBlock>
+            <Label x:Name="labTop" Content="Посмотреть результаты для " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="comboboxDisciple" Margin="181,10,5,0" VerticalAlignment="Top" Height="26"/>
         </Grid>
     </Grid>
 </Window>

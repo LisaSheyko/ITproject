@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Media;
 using System.Globalization;
+using System.Data;
 
 namespace Project
 {
@@ -25,8 +26,12 @@ namespace Project
         {
             InitializeComponent();
 
-            //Сгенерирум данные для графиков
+            DataTable people = dbManager.execute(@"select u.name from users u join grant g on u.grant_uk = g.uk
+                                                    where g.ccode = 'child'");
+            for (int i = 0; i < people.Rows.Count; ++i)
+                comboboxDisciple.Items.Add(people.Rows[i].ItemArray[0].ToString());
 
+            //Сгенерирум данные для графиков
             int Np = 30;
             double[] Data1 = new double[Np + 1];
             double[] Data2 = new double[Np + 1];
@@ -36,9 +41,7 @@ namespace Project
                 Data1[i] = Math.Sin(i / 5.0) + 1;
                 Data2[i] = Math.Cos(i / 5.0) + 1;
             }
-
             //Теперь нарисуем график
-
             DrawingGroup aDrawingGroup = new DrawingGroup();
 
 
