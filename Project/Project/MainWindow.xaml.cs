@@ -29,12 +29,12 @@ namespace Project
                 MessageBox.Show(res);
             }
         }
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             incorrectPassLabel.Visibility = Visibility.Hidden;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         { // Достаем и сверяем пароль
             DataTable dTable = new DataTable();
             String sqlQuery, login = txtBoxLogin.Text, pass = passwordBox.Text;
@@ -54,8 +54,10 @@ namespace Project
                     return;
                 }
                 ((App)Application.Current).user = dTable;
-                personalAccWindows acc = new personalAccWindows();
-                acc.Title = dTable.Rows[0].ItemArray[2].ToString();
+                personalAccWindows acc = new personalAccWindows
+                {
+                    Title = dTable.Rows[0].ItemArray[2].ToString()
+                };
                 acc.Show();
                 this.Close();
             }
@@ -65,10 +67,12 @@ namespace Project
             }
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            registration reg = new registration();
-            reg.Owner = this;
+            registration reg = new registration
+            {
+                Owner = this
+            };
             reg.ShowDialog();
         }
     }

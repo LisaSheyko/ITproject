@@ -16,25 +16,19 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="button" Content="Теоретический справочник" Style="{StaticResource simpleBtnStyle}" Margin="10,10,0,0" Width="179" Height="31" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0"/>
-        <Button x:Name="button1" Content="Задачи" Style="{StaticResource btnStyle}" Margin="194,10,0,0" Width="117" Height="31" VerticalAlignment="Top" BorderThickness="1" Padding="0" HorizontalAlignment="Left"/>
+        <Button x:Name="theoryBtn" Content="Теоретический справочник" Style="{StaticResource btnStyle}" Margin="10,10,0,0" Width="179" Height="31" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Click="TheoryBtn_Click"/>
+        <Button x:Name="taskBtn" Content="Задачи" Style="{StaticResource btnStyle}" Margin="194,10,0,0" Width="117" Height="31" VerticalAlignment="Top" BorderThickness="1" Padding="0" HorizontalAlignment="Left"/>
         <TextBlock x:Name="textBlock" TextWrapping="Wrap" Background="White" Opacity="0.3" TextAlignment="Right" Margin="5,77,10,40" ScrollViewer.CanContentScroll="True"/>
         <TextBox x:Name="textBox" TextWrapping="Wrap" FontStyle="Italic" TextAlignment="Right" Margin="4,234,43,10" VerticalAlignment="Bottom" Height="25"/>
         <Button x:Name="button2" Content=" Ок " Style="{StaticResource ResourceKey=btnStyle}" RenderTransformOrigin="1.053,0.52" Margin="283,234,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="28" Height="25"/>
         <Label x:Name="label" Content="Выберите режим:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="107"/>
-        <RadioButton x:Name="radioButton" Content="Статистика" HorizontalAlignment="Left" Margin="122,52,0,0" VerticalAlignment="Top" Height="20" Checked="radioButton_Checked"/>
-        <RadioButton x:Name="radioButton1" Content="График" HorizontalAlignment="Left" Margin="206,52,0,0" VerticalAlignment="Top" Height="20" Checked="radioButton1_Checked"/>
+        <RadioButton x:Name="radioButton" Content="Статистика" HorizontalAlignment="Left" Margin="122,52,0,0" VerticalAlignment="Top" Height="20" Checked="RadioButton_Checked"/>
+        <RadioButton x:Name="radioButton1" Content="График" HorizontalAlignment="Left" Margin="206,52,0,0" VerticalAlignment="Top" Height="20" Checked="RadioButton1_Checked"/>
         <Grid Grid.Column="1" Background="White">
             <Image x:Name="imgProgress" Margin="10, 10, 10, 10" Visibility="Hidden"/>
-            <TextBlock x:Name="txtBlockStat" Margin="10,41,10,10" TextWrapping="Wrap">
-                Тут будет
-                <LineBreak />
-                различная информация 
-                <LineBreak />
-                <Run FontStyle="Italic"> по результатам ученика.</Run>
-            </TextBlock>
+            <TextBlock x:Name="txtBlockStat" Margin="10,41,10,10" TextWrapping="Wrap" />
             <Label x:Name="labTop" Content="Посмотреть результаты для " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="comboboxDisciple" Margin="181,10,5,0" VerticalAlignment="Top" Height="26"/>
+            <ComboBox x:Name="comboboxDisciple" Margin="181,10,5,0" VerticalAlignment="Top" Height="26" SelectionChanged="ComboboxDisciple_SelectionChanged"/>
         </Grid>
     </Grid>
 </Window>

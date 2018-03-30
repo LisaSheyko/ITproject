@@ -8,23 +8,23 @@
         mc:Ignorable="d"
         Title="Регистрация нового ученика" Background="{DynamicResource defBack}" Height="223.5" Width="434.5"
         MinHeight="223.5" MinWidth="434.5">
-    <Grid RenderTransformOrigin="0.5,0.5">
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="Введите ФИО:" HorizontalAlignment="Left" Margin="43,19,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Придумайте логин:" HorizontalAlignment="Left" Margin="43,45,0,0" VerticalAlignment="Top" Grid.ColumnSpan="1"/>
-        <Label x:Name="label2" Content="И пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,71,0,0" RenderTransformOrigin="0.121,-0.038"/>
-        <Label x:Name="label3" Content="Выберите свой класс:" HorizontalAlignment="Left" Margin="43,97,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="5,19,-78,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Grid.Column="1" TextChanged="nameBox_TextChanged"/>
-        <TextBox x:Name="logBox" HorizontalAlignment="Left" Height="23" Margin="5,45,-79,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Grid.Column="1" TextChanged="logBox_TextChanged"/>
-        <TextBox x:Name="passBox1" HorizontalAlignment="Left" Height="23" Margin="5,71,-79,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Grid.Column="1" TextChanged="passBox1_TextChanged"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="5,97,0,0" VerticalAlignment="Top" SelectionChanged="comboBox_SelectionChanged" Grid.Column="1">
+        <Label x:Name="label" Content="Введите ФИО:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Придумайте логин:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Grid.ColumnSpan="1"/>
+        <Label x:Name="label2" Content="И пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" RenderTransformOrigin="0.121,-0.038"/>
+        <Label x:Name="label3" Content="Выберите свой класс:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameBox" Height="23" Margin="130,10,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="nameBox_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="logBox" Height="23" Margin="131,41,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="logBox_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="passBox1" Height="23" Margin="131,72,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="passBox1_TextChanged" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="143,104,0,0" VerticalAlignment="Top" SelectionChanged="comboBox_SelectionChanged">
             <ComboBoxItem Content="10"/>
             <ComboBoxItem Content="11"/>
         </ComboBox>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="Зарегистрироваться" Margin="157,127,10,0" VerticalAlignment="Top" Width="Auto" Click="button_Click"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Style="{StaticResource btnStyle}" Content="Зарегистрироваться" Margin="143,137,24,0" VerticalAlignment="Top" Width="Auto" Click="button_Click" HorizontalAlignment="Left"/>
         <Label x:Name="incorrectPassLabel" Content="Заполните все поля!" HorizontalAlignment="Left" Margin="157,152,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Visibility="Hidden" FontFamily="Segoe Print" />
     </Grid>
 </Window>

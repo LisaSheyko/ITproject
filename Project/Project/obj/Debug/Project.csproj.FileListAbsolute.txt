@@ -63,3 +63,5 @@ E:\ITproject\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 E:\ITproject\Project\Project\obj\Debug\Project.csproj.CopyComplete
 E:\ITproject\Project\Project\obj\Debug\Project.exe
 E:\ITproject\Project\Project\obj\Debug\Project.pdb
+E:\ITproject\Project\Project\obj\Debug\theoryWindow.g.cs
+E:\ITproject\Project\Project\obj\Debug\theoryWindow.baml

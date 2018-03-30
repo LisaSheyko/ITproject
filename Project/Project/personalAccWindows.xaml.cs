@@ -31,6 +31,10 @@ namespace Project
             for (int i = 0; i < people.Rows.Count; ++i)
                 comboboxDisciple.Items.Add(people.Rows[i].ItemArray[0].ToString());
 
+            txtBlockStat.Text = @"Всего решено задач: 0
+Количество правильных ответов / общее количество: 0.0
+Успешность решения после теории: 0.0
+Успешность решения без теории: 0.0";
             //Сгенерирум данные для графиков
             int Np = 30;
             double[] Data1 = new double[Np + 1];
@@ -43,8 +47,6 @@ namespace Project
             }
             //Теперь нарисуем график
             DrawingGroup aDrawingGroup = new DrawingGroup();
-
-
             for (int DrawingStage = 0; DrawingStage < 10; DrawingStage++)
             {
                 GeometryDrawing drw = new GeometryDrawing();
@@ -176,16 +178,28 @@ namespace Project
             imgProgress.Source = new DrawingImage(aDrawingGroup);
         }
 
-        private void radioButton_Checked(object sender, RoutedEventArgs e)
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             txtBlockStat.Visibility = Visibility.Visible;
             imgProgress.Visibility = Visibility.Hidden;
         }
 
-        private void radioButton1_Checked(object sender, RoutedEventArgs e)
+        private void RadioButton1_Checked(object sender, RoutedEventArgs e)
         {
             txtBlockStat.Visibility = Visibility.Hidden;
             imgProgress.Visibility = Visibility.Visible;
+        }
+
+        private void ComboboxDisciple_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            comboboxDisciple.SelectedValue = this.Title;
+            comboboxDisciple.IsEnabled = false;
+        }
+
+        private void TheoryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            theoryWindow T = new theoryWindow();
+            T.ShowDialog();
         }
     }
 }
