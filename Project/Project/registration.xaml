@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:Project"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Project.registration"
         mc:Ignorable="d"
-        Title="Регистрация нового ученика" Background="{DynamicResource defBack}" Height="223.5" Width="434.5"
+        Title="Регистрация нового ученика" Height="223.5" Width="434.5"
         MinHeight="223.5" MinWidth="434.5">
+    <Window.Background>
+        <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
     <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

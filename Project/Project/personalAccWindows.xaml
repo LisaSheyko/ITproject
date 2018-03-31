@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Project"
         x:Class="Project.personalAccWindows"
         mc:Ignorable="d"
-        Title="Личный кабинет" Height="315" Width="660" Background="{DynamicResource defBack}">
+        Title="Личный кабинет" Height="315" Width="660">
+    <Window.Background>
+        <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
     <Window.Resources>
         <AlternationConverter x:Key="AlternationConverter"/>
         <local:simpleConv x:Key="simpleConv"/>

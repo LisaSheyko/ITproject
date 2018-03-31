@@ -65,3 +65,5 @@ E:\ITproject\Project\Project\obj\Debug\Project.exe
 E:\ITproject\Project\Project\obj\Debug\Project.pdb
 E:\ITproject\Project\Project\obj\Debug\theoryWindow.g.cs
 E:\ITproject\Project\Project\obj\Debug\theoryWindow.baml
+E:\ITproject\Project\Project\obj\Debug\theoryItemWindow.g.cs
+E:\ITproject\Project\Project\obj\Debug\theoryItemWindow.baml

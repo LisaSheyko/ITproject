@@ -29,3 +29,4 @@
 * Visual Studio 2015
 * C# + WPF + SQLite
 * Возможно, Python для вспомогательной обработки информации
+* Visual Studio 2013 Ultimate для генерации UML-диаграмм классов

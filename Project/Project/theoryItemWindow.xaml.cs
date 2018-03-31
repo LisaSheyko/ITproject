@@ -1,7 +1,9 @@
 ﻿using System;
+using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,23 +13,28 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Xps.Packaging;
+using System.Windows.Xps;
 
 namespace Project
 {
     /// <summary>
-    /// Логика взаимодействия для theoryWindow.xaml
+    /// Логика взаимодействия для theoryItemWindow.xaml
     /// </summary>
-    public partial class theoryWindow : Window
+    public partial class theoryItemWindow : Window
     {
-        public theoryWindow()
+        public theoryItemWindow()
         {
             InitializeComponent();
+            XpsDocument doc = new XpsDocument(Directory.GetCurrentDirectory() + 
+                "/test.xps", FileAccess.Read);
+            DocV.Document = doc.GetFixedDocumentSequence();
+            doc.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            theoryItemWindow Ti = new theoryItemWindow();
-            Ti.ShowDialog();
+            this.Close();
         }
     }
 }
