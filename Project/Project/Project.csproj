@@ -91,6 +91,9 @@
       <DependentUpon>registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="simpleConv.cs" />
+    <Compile Include="TaskItemWindow.xaml.cs">
+      <DependentUpon>TaskItemWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="theoryItemWindow.xaml.cs">
       <DependentUpon>theoryItemWindow.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TaskItemWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

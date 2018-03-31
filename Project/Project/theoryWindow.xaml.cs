@@ -26,8 +26,16 @@ namespace Project
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            theoryItemWindow Ti = new theoryItemWindow();
-            Ti.ShowDialog();
+            if (this.Title == "Банк задач")
+            {
+                TaskItemWindow TskI = new TaskItemWindow();
+                TskI.ShowDialog();
+            }
+            else
+            {
+                theoryItemWindow Ti = new theoryItemWindow();
+                Ti.ShowDialog();
+            }
         }
     }
 }

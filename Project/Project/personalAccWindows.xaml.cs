@@ -201,5 +201,18 @@ namespace Project
             theoryWindow T = new theoryWindow();
             T.ShowDialog();
         }
+
+        private void TaskBtn_Click(object sender, RoutedEventArgs e)
+        {
+            theoryWindow T = new theoryWindow();
+            T.exp_1.Header = "Заданные учителем";
+            T.exp_2.Header = "Неправильно решенные";
+            T.exp_3.Header = "Рекомендованные";
+            T.exp_4.Header = "Последние";
+            T.exp_5.IsEnabled = false;
+            T.exp_5.Visibility = Visibility.Hidden;
+            T.Title = "Банк задач";
+            T.ShowDialog();
+        }
     }
 }

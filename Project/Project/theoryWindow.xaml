@@ -17,17 +17,17 @@
         <TreeView Margin="10,37,5,5"/>
         <ComboBox Margin="80,10,140,0" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2" IsEditable="True"/>
         <StackPanel Grid.Column="1" Margin="10,37,10,5" Background="White" Height="Auto" Width="Auto">
-            <Expander Header="Рекомендованные учителем" IsExpanded="True">
+            <Expander x:Name="exp_1" Header="Рекомендованные учителем" IsExpanded="True">
                 <ListBox>
                     <ListBoxItem>Тема №1</ListBoxItem>
                     <ListBoxItem>Тема №2</ListBoxItem>
                     <ListBoxItem>Тема №3</ListBoxItem>
                 </ListBox>
             </Expander>
-            <Expander Header="В процессе изучения">
+            <Expander x:Name="exp_2" Header="В процессе изучения">
                 <ListBox></ListBox>
             </Expander>
-            <Expander Header="Остались вопросы">
+            <Expander x:Name="exp_3" Header="Остались вопросы">
                 <StackPanel>
                     <TextBlock>Отметьте, что вам больше нравится</TextBlock>
                     <CheckBox>WinForms</CheckBox>
@@ -35,10 +35,10 @@
                     <CheckBox>ASP.NET</CheckBox>
                 </StackPanel>
             </Expander>
-            <Expander Header="Могут быть интересны">
+            <Expander x:Name="exp_4" Header="Могут быть интересны">
                 <ListBox></ListBox>
             </Expander>
-            <Expander Header="Последние">
+            <Expander x:Name="exp_5" Header="Последние">
                 <ListBox></ListBox>
             </Expander>
         </StackPanel>

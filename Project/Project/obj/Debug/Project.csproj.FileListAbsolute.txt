@@ -67,3 +67,5 @@ E:\ITproject\Project\Project\obj\Debug\theoryWindow.g.cs
 E:\ITproject\Project\Project\obj\Debug\theoryWindow.baml
 E:\ITproject\Project\Project\obj\Debug\theoryItemWindow.g.cs
 E:\ITproject\Project\Project\obj\Debug\theoryItemWindow.baml
+E:\ITproject\Project\Project\obj\Debug\TaskItemWindow.g.cs
+E:\ITproject\Project\Project\obj\Debug\TaskItemWindow.baml
