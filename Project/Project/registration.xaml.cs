@@ -27,12 +27,12 @@ namespace Project
             InitializeComponent();
         }
 
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             incorrectPassLabel.Visibility = Visibility.Hidden;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataTable dTable;
             if (nameBox.Text == "" || logBox.Text == "" || passBox1.Text == "" || comboBox.Text == "")
@@ -52,17 +52,17 @@ namespace Project
             this.Close();
         }
 
-        private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void NameBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             incorrectPassLabel.Visibility = Visibility.Hidden;
         }
 
-        private void logBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void LogBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             incorrectPassLabel.Visibility = Visibility.Hidden;
         }
 
-        private void passBox1_TextChanged(object sender, TextChangedEventArgs e)
+        private void PassBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
             incorrectPassLabel.Visibility = Visibility.Hidden;
         }

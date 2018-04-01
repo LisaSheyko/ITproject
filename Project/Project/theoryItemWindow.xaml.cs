@@ -21,9 +21,9 @@ namespace Project
     /// <summary>
     /// Логика взаимодействия для theoryItemWindow.xaml
     /// </summary>
-    public partial class theoryItemWindow : Window
+    public partial class TheoryItemWindow : Window
     {
-        public theoryItemWindow()
+        public TheoryItemWindow()
         {
             InitializeComponent();
             XpsDocument doc = new XpsDocument(Directory.GetCurrentDirectory() + 

@@ -20,14 +20,14 @@
         <Label x:Name="label1" Content="Придумайте логин:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Grid.ColumnSpan="1"/>
         <Label x:Name="label2" Content="И пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" RenderTransformOrigin="0.121,-0.038"/>
         <Label x:Name="label3" Content="Выберите свой класс:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nameBox" Height="23" Margin="130,10,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="nameBox_TextChanged" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="logBox" Height="23" Margin="131,41,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="logBox_TextChanged" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="passBox1" Height="23" Margin="131,72,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="passBox1_TextChanged" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="143,104,0,0" VerticalAlignment="Top" SelectionChanged="comboBox_SelectionChanged">
+        <TextBox x:Name="nameBox" Height="23" Margin="130,10,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="NameBox_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="logBox" Height="23" Margin="131,41,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="LogBox_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="passBox1" Height="23" Margin="131,72,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="PassBox1_TextChanged" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="143,104,0,0" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem Content="10"/>
             <ComboBoxItem Content="11"/>
         </ComboBox>
-        <Button x:Name="button" Grid.ColumnSpan="2" Style="{StaticResource btnStyle}" Content="Зарегистрироваться" Margin="143,137,24,0" VerticalAlignment="Top" Width="Auto" Click="button_Click" HorizontalAlignment="Left"/>
-        <Label x:Name="incorrectPassLabel" Content="Заполните все поля!" HorizontalAlignment="Left" Margin="157,152,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Visibility="Hidden" FontFamily="Segoe Print" />
+        <Button x:Name="button" Grid.ColumnSpan="2" Style="{StaticResource btnStyle}" Content="Зарегистрироваться" Margin="158,137,0,0" VerticalAlignment="Top" Width="Auto" Click="Button_Click" HorizontalAlignment="Left"/>
+        <Label x:Name="incorrectPassLabel" Content="Заполните все поля!" HorizontalAlignment="Left" Margin="146,152,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Segoe Print" Visibility="Hidden" />
     </Grid>
 </Window>

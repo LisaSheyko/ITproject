@@ -19,7 +19,7 @@ namespace Project
         { // необходимо (?) поддерживать в актуальном состоянии структуру созданных таблиц
             m_dbConn = new SQLiteConnection();
             m_sqlCmd = new SQLiteCommand();
-            dbFileName = "Files/dbSQLite";
+            dbFileName = "dbSQLite";
             
             if (!File.Exists(dbFileName))
                 SQLiteConnection.CreateFile(dbFileName);

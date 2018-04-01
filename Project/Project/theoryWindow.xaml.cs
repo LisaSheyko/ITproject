@@ -33,7 +33,7 @@ namespace Project
             }
             else
             {
-                theoryItemWindow Ti = new theoryItemWindow();
+                TheoryItemWindow Ti = new TheoryItemWindow();
                 Ti.ShowDialog();
             }
         }
