@@ -12,7 +12,6 @@
     </Window.Background>
     <Window.Resources>
         <AlternationConverter x:Key="AlternationConverter"/>
-        <local:SimpleConv x:Key="simpleConv"/>
     </Window.Resources>
     <Grid x:Name="grid">
         <Grid.ColumnDefinitions>

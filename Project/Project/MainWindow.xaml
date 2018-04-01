@@ -13,7 +13,7 @@
     <Grid RenderTransformOrigin="0.5,0.5" Height="319" VerticalAlignment="Center" HorizontalAlignment="Center">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Введите логин и пароль либо зарегестрируйтесь в качестве нового ученика:" VerticalAlignment="Top" RenderTransformOrigin="0.554,-2.559" FontSize="14" Margin="112,69,82,0" Height="41" Grid.ColumnSpan="2" Width="314"/>
         <TextBox x:Name="txtBoxLogin" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="14" Height="21" TextChanged="TextBox_TextChanged" Margin="158,141,0,0" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="passwordBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="14" Height="21" TextChanged="TextBox_TextChanged" Margin="158,194,0,0" Grid.ColumnSpan="2" FontFamily="IMG Symbols"/>
+        <TextBox x:Name="passwordBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="14" Height="21" TextChanged="TextBox_TextChanged" Margin="158,194,0,0" Grid.ColumnSpan="2" FontFamily="Webdings"/>
         <Label x:Name="label" Content="Логин:&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="57" Margin="158,115,0,0" Height="26" RenderTransformOrigin="0.456,-0.048" FontWeight="Bold"/>
         <Label x:Name="label_Copy" Content="Пароль:&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.435,2.893" Margin="158,167,0,0" Height="27" FontWeight="Bold"/>
         <Button x:Name="enterButt" Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click" Margin="158,220,0,0"/>

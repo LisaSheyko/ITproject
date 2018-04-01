@@ -90,7 +90,6 @@
     <Compile Include="registration.xaml.cs">
       <DependentUpon>registration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="simpleConv.cs" />
     <Compile Include="TaskItemWindow.xaml.cs">
       <DependentUpon>TaskItemWindow.xaml</DependentUpon>
     </Compile>
