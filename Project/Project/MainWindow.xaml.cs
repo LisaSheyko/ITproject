@@ -23,7 +23,7 @@ namespace Project
         public MainWindow()
         {
             InitializeComponent();
-            string res = dbManager.start();
+            string res = DbManager.Start();
             if (res != "")
             {
                 MessageBox.Show(res);
@@ -47,7 +47,7 @@ namespace Project
             try
             {
                 sqlQuery = "SELECT uk, password, name FROM Users where login = '" + login + "'";
-                dTable = dbManager.execute(sqlQuery);
+                dTable = DbManager.Execute(sqlQuery);
                 if (dTable.Rows.Count == 0 || dTable.Rows[0].ItemArray[1].ToString() != pass)
                 {
                     incorrectPassLabel.Visibility = Visibility.Visible;

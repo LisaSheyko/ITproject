@@ -9,17 +9,17 @@ using System.Data;
 
 namespace Project
 {
-    public class dbManager
+    public class DbManager
     {
         static String dbFileName;
         static SQLiteConnection m_dbConn;
         static SQLiteCommand m_sqlCmd;
 
-        public static string start ()
+        public static string Start ()
         { // необходимо (?) поддерживать в актуальном состоянии структуру созданных таблиц
             m_dbConn = new SQLiteConnection();
             m_sqlCmd = new SQLiteCommand();
-            dbFileName = "dbSQLite";
+            dbFileName = "Files/dbSQLite";
             
             if (!File.Exists(dbFileName))
                 SQLiteConnection.CreateFile(dbFileName);
@@ -30,8 +30,8 @@ namespace Project
                 m_sqlCmd.Connection = m_dbConn;
 
                 m_sqlCmd.CommandText = @"CREATE TABLE IF NOT EXISTS Users 
-                    (id INTEGER PRIMARY KEY AUTOINCREMENT, LOGIN TEXT, PASSWORD TEXT, NAME TEXT,
-                     CLASS INTEGER)";
+                    (UK INTEGER PRIMARY KEY AUTOINCREMENT, LOGIN TEXT UNIQUE, PASSWORD TEXT, NAME TEXT,
+                     CLASS INTEGER, GRANT_UK INTEGER)";
                 m_sqlCmd.ExecuteNonQuery();
             }
             catch (SQLiteException ex)
@@ -40,7 +40,7 @@ namespace Project
             }
             return "";
         }
-        public static DataTable execute(string sqlQuery)
+        public static DataTable Execute(string sqlQuery)
         {
             DataTable dTable = new DataTable();
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlQuery, m_dbConn);
