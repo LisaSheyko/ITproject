@@ -83,6 +83,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="addNewWindow.xaml.cs">
+      <DependentUpon>addNewWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="dbManager.cs" />
     <Compile Include="personalAccWindows.xaml.cs">
       <DependentUpon>personalAccWindows.xaml</DependentUpon>
@@ -99,6 +102,10 @@
     <Compile Include="theoryWindow.xaml.cs">
       <DependentUpon>theoryWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="addNewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

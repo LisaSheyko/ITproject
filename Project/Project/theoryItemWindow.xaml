@@ -11,8 +11,9 @@
     </Window.Background>
     <Grid>
         <DocumentViewer x:Name="DocV" Margin="10,10,10,50" VerticalAlignment="Top" />
-        <Button Content="Все понятно!" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button_Click" Height="29" Width="94" Margin="0,0,10,10"/>
-        <Button Content="Перейти к задачам" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button_Click" Height="29" Margin="0,0,120,10"/>
-        <Button Content="Остались вопросы" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="119" Height="29" Click="Button_Click"/>
+        <Button Content="Все понятно!" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button_Click" Height="29" Width="94" Margin="0,0,10,10" Background="#FF8BC1A7" BorderBrush="Black"/>
+        <Button Content="Перейти к задачам" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button_Click" Height="29" Margin="0,0,120,10" Background="#FFC1DAB0" BorderBrush="Black"/>
+        <Button Content="Остались вопросы" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="119" Height="29" Click="Button_Click" Background="#FF75BCA9" BorderBrush="Black"/>
+        <Button Content="⍟" HorizontalAlignment="Left" Margin="134,0,0,0" VerticalAlignment="Bottom" FontSize="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF646464"/>
     </Grid>
 </Window>

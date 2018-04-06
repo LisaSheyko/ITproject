@@ -41,8 +41,12 @@
             <Expander x:Name="exp_5" Header="Последние">
                 <ListBox></ListBox>
             </Expander>
+            <Expander x:Name="exp_6" Header="Избранные">
+                <ListBox></ListBox>
+            </Expander>
+            <Button Content="Добавить материалы" Style="{StaticResource btnStyle}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Button_Click_1" Background="#FFE3FCD4"/>
         </StackPanel>
-        <Button Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="125" Height="22" Content="Перейти" Click="Button_Click"/>
+        <Button Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="125" Height="22" Content="Перейти" Click="Button_Click" Background="#FF51B0B6"/>
 
     </Grid>
 </Window>

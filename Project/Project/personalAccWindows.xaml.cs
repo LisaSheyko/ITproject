@@ -209,8 +209,9 @@ namespace Project
             T.exp_2.Header = "Неправильно решенные";
             T.exp_3.Header = "Рекомендованные";
             T.exp_4.Header = "Последние";
-            T.exp_5.IsEnabled = false;
-            T.exp_5.Visibility = Visibility.Hidden;
+            T.exp_5.Header = "Избранные";
+            T.exp_6.IsEnabled = false;
+            T.exp_6.Visibility = Visibility.Hidden;
             T.Title = "Банк задач";
             T.ShowDialog();
         }

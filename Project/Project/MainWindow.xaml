@@ -16,8 +16,8 @@
         <TextBox x:Name="passwordBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="14" Height="21" TextChanged="TextBox_TextChanged" Margin="158,194,0,0" Grid.ColumnSpan="2" FontFamily="Webdings"/>
         <Label x:Name="label" Content="Логин:&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="57" Margin="158,115,0,0" Height="26" RenderTransformOrigin="0.456,-0.048" FontWeight="Bold"/>
         <Label x:Name="label_Copy" Content="Пароль:&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.435,2.893" Margin="158,167,0,0" Height="27" FontWeight="Bold"/>
-        <Button x:Name="enterButt" Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click" Margin="158,220,0,0"/>
-        <Button x:Name="regButt" Content="Регистрация" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="269,220,0,0" Click="Button1_Click"/>
+        <Button x:Name="enterButt" Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click" Margin="158,220,0,0" Background="#FFB8EDCF"/>
+        <Button x:Name="regButt" Content="Регистрация" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="269,220,0,0" Click="Button1_Click" Background="#FFCBF2D3"/>
         <Label x:Name="incorrectPassLabel" Content="Неправильный логин или пароль!" HorizontalAlignment="Left" Margin="158,261,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.072,-0.735" FontFamily="Segoe Print" Height="28" Foreground="Black" Background="{x:Null}" FontWeight="Bold" Visibility="Hidden"/>
     </Grid>
 </Window>

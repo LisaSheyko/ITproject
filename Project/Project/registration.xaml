@@ -27,7 +27,7 @@
             <ComboBoxItem Content="10"/>
             <ComboBoxItem Content="11"/>
         </ComboBox>
-        <Button x:Name="button" Grid.ColumnSpan="2" Style="{StaticResource btnStyle}" Content="Зарегистрироваться" Margin="158,137,0,0" VerticalAlignment="Top" Width="Auto" Click="Button_Click" HorizontalAlignment="Left"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Style="{StaticResource btnStyle}" Content="Зарегистрироваться" Margin="158,137,0,0" VerticalAlignment="Top" Width="128" Click="Button_Click" HorizontalAlignment="Left" BorderBrush="Black" Background="#FFB4E4CA" Height="24"/>
         <Label x:Name="incorrectPassLabel" Content="Заполните все поля!" HorizontalAlignment="Left" Margin="146,152,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Segoe Print" Visibility="Hidden" />
     </Grid>
 </Window>

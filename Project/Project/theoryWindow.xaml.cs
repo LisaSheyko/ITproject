@@ -37,5 +37,11 @@ namespace Project
                 Ti.ShowDialog();
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            addNewWindow ANW = new addNewWindow();
+            ANW.ShowDialog();
+        }
     }
 }

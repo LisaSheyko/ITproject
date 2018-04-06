@@ -107,3 +107,5 @@ C:\Users\Liza\Desktop\ITproject\Project\Project\obj\Debug\Project.csproj.Generat
 C:\Users\Liza\Desktop\ITproject\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\Liza\Desktop\ITproject\Project\Project\obj\Debug\Project.exe
 C:\Users\Liza\Desktop\ITproject\Project\Project\obj\Debug\Project.pdb
+E:\ITproject\Project\Project\obj\Debug\addNewWindow.g.cs
+E:\ITproject\Project\Project\obj\Debug\addNewWindow.baml
