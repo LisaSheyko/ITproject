@@ -14,9 +14,10 @@
         <Button Content="Ок" x:Name="BtnOk" Style="{StaticResource btnStyle}" HorizontalAlignment="Right" Margin="0,0,60,10" VerticalAlignment="Bottom" FontSize="20" Width="40" BorderBrush="Black" Background="#FFA2CCAA"/>
         <Button Content="→" x:Name="BtnRight" HorizontalAlignment="Right" Margin="0,0,37,10" VerticalAlignment="Bottom" Background="{x:Null}" FontSize="22" Height="33" BorderBrush="{x:Null}"/>
         <Button Content="←" x:Name="BtnLeft" HorizontalAlignment="Right" Margin="0,0,100,10" VerticalAlignment="Bottom" Background="{x:Null}" FontSize="22" Height="33" BorderBrush="{x:Null}"/>
-        <Button Content="?" x:Name="BtnQue" Style="{StaticResource btnStyle}" HorizontalAlignment="Right" Margin="0,0,170,10" VerticalAlignment="Bottom" FontSize="20" Width="40" IsEnabled="False"/>
+        <Button Content="?" x:Name="BtnQue" Style="{StaticResource btnStyle}" HorizontalAlignment="Right" Margin="0,0,199,10" VerticalAlignment="Bottom" FontSize="20" Width="40" IsEnabled="False"/>
         <TextBox HorizontalAlignment="Right" Height="31" Margin="0,0,300,10" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="170" FontSize="20"/>
         <ComboBox x:Name="ComboAnswers" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="296" Height="31" FontSize="20" IsEnabled="False"/>
-        <Button x:Name="FavBtn" Content="⍟" HorizontalAlignment="Right" Margin="0,0,215,0" VerticalAlignment="Bottom" FontSize="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF646464" Click="Button_Click"/>
+        <Button x:Name="FavBtn" Content="⍟" HorizontalAlignment="Right" Margin="0,0,245,0" VerticalAlignment="Bottom" FontSize="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF646464" Click="Button_Click"/>
+        <Button x:Name="SettBtn" Content="✐" HorizontalAlignment="Right" Margin="0,0,154,10" VerticalAlignment="Bottom" FontSize="22" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF646464"/>
     </Grid>
 </Window>
