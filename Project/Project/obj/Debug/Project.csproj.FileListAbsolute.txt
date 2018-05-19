@@ -43,7 +43,6 @@ E:\ITproject\Project\Project\bin\Debug\EntityFramework.xml
 E:\ITproject\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
 E:\ITproject\Project\Project\bin\Debug\System.Data.SQLite.xml
 E:\ITproject\Project\Project\bin\Debug\System.Data.SQLite.dll.config
-E:\ITproject\Project\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
 E:\ITproject\Project\Project\obj\Debug\MainWindow.g.cs
 E:\ITproject\Project\Project\obj\Debug\personalAccWindows.g.cs
 E:\ITproject\Project\Project\obj\Debug\registration.g.cs
@@ -109,3 +108,4 @@ C:\Users\Liza\Desktop\ITproject\Project\Project\obj\Debug\Project.exe
 C:\Users\Liza\Desktop\ITproject\Project\Project\obj\Debug\Project.pdb
 E:\ITproject\Project\Project\obj\Debug\addNewWindow.g.cs
 E:\ITproject\Project\Project\obj\Debug\addNewWindow.baml
+E:\ITproject\Project\Project\obj\Debug\Project.csprojAssemblyReference.cache

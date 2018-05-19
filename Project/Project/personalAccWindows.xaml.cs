@@ -26,7 +26,7 @@ namespace Project
         {
             InitializeComponent();
 
-            DataTable people = DbManager.Execute(@"select u.name from users u join grant g on u.grant_uk = g.uk
+            DataTable people = DbManager.Execute(@"select u.name from user u join grant g on u.grant_uk = g.uk
                                                     where g.ccode = 'child'");
             for (int i = 0; i < people.Rows.Count; ++i)
                 comboboxDisciple.Items.Add(people.Rows[i].ItemArray[0].ToString());

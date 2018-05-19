@@ -16,7 +16,7 @@ namespace Project
         static SQLiteCommand m_sqlCmd;
 
         public static string Start ()
-        { // необходимо (?) поддерживать в актуальном состоянии структуру созданных таблиц
+        {
             m_dbConn = new SQLiteConnection();
             m_sqlCmd = new SQLiteCommand();
             dbFileName = "dbSQLite";
@@ -29,7 +29,7 @@ namespace Project
                 m_dbConn.Open();
                 m_sqlCmd.Connection = m_dbConn;
 
-                m_sqlCmd.CommandText = @"CREATE TABLE IF NOT EXISTS Users 
+                m_sqlCmd.CommandText = @"CREATE TABLE IF NOT EXISTS User 
                     (UK INTEGER PRIMARY KEY AUTOINCREMENT, LOGIN TEXT UNIQUE, PASSWORD TEXT, NAME TEXT,
                      CLASS INTEGER, GRANT_UK INTEGER)";
                 m_sqlCmd.ExecuteNonQuery();
@@ -46,6 +46,11 @@ namespace Project
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlQuery, m_dbConn);
             adapter.Fill(dTable);
             return dTable;
+        }
+        public static void ExecuteNonQ(string sqlQuery)
+        {
+            m_sqlCmd.CommandText = sqlQuery;
+            m_sqlCmd.ExecuteNonQuery();
         }
     }
 }

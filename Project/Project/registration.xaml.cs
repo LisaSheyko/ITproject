@@ -40,14 +40,14 @@ namespace Project
                 incorrectPassLabel.Visibility = Visibility.Visible;
                 return;
             }
-            dTable = DbManager.Execute("select * from users where login = '" + logBox.Text + "'");
+            dTable = DbManager.Execute("select * from user where login = '" + logBox.Text + "'");
             if (dTable.Rows.Count > 0)
             {
                 incorrectPassLabel.Content = "Логин занят!";
                 incorrectPassLabel.Visibility = Visibility.Visible;
                 return;
             }
-            DbManager.Execute("insert into users (login, password, name, class) values ('" +
+            DbManager.ExecuteNonQ("insert into user (login, password, name, class) values ('" +
                 logBox.Text + "','" + passBox1.Text + "','" + nameBox.Text + "'," + comboBox.Text + ")");
             this.Close();
         }

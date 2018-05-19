@@ -46,7 +46,7 @@ namespace Project
 
             try
             {
-                sqlQuery = "SELECT uk, password, name FROM Users where login = '" + login + "'";
+                sqlQuery = "SELECT uk, password, name FROM User where login = '" + login + "'";
                 dTable = DbManager.Execute(sqlQuery);
                 if (dTable.Rows.Count == 0 || dTable.Rows[0].ItemArray[1].ToString() != pass)
                 {

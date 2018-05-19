@@ -7,23 +7,19 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Project.registration"
         mc:Ignorable="d"
         Title="Регистрация нового ученика" Height="223.5" Width="434.5"
-        MinHeight="223.5" MinWidth="434.5">
+        MinHeight="223.5" MinWidth="434.5" MaxHeight="223.5">
     <Window.Background>
         <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,2,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Введите ФИО:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Придумайте логин:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Grid.ColumnSpan="1"/>
         <Label x:Name="label2" Content="И пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" RenderTransformOrigin="0.121,-0.038"/>
         <Label x:Name="label3" Content="Выберите свой класс:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nameBox" Height="23" Margin="130,10,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="NameBox_TextChanged" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="logBox" Height="23" Margin="131,41,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="LogBox_TextChanged" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="passBox1" Height="23" Margin="131,72,-96,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="PassBox1_TextChanged" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="143,104,0,0" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged">
+        <TextBox x:Name="nameBox" Height="23" Margin="130,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="NameBox_TextChanged"/>
+        <TextBox x:Name="logBox" Height="23" Margin="130,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="LogBox_TextChanged"/>
+        <TextBox x:Name="passBox1" Height="23" Margin="130,72,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="PassBox1_TextChanged"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="143,104,0,0" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged" Width="46">
             <ComboBoxItem Content="10"/>
             <ComboBoxItem Content="11"/>
         </ComboBox>
