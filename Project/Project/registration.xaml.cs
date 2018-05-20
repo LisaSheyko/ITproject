@@ -25,6 +25,8 @@ namespace Project
         public registration()
         {
             InitializeComponent();
+            DataTable dTable = DbManager.Execute("select a.seq from sqlite_sequence a where a.name = 'User'");
+            logBox.Text = "User_" + dTable.Rows[0].ItemArray[0].ToString();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
