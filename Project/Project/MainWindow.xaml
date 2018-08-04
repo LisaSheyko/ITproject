@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-    Title="Добро пожаловать в &lt;&gt;" Height="350" Width="525" Visibility="Visible"
+    Title="Добро пожаловать в FeelMath!" Height="350" Width="525" Visibility="Visible"
         MinHeight="350" MinWidth="525">
     <Window.Background>
         <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid RenderTransformOrigin="0.5,0.5" Height="319" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Введите логин и пароль либо зарегистрируйтесь в качестве нового ученика:" VerticalAlignment="Top" RenderTransformOrigin="0.554,-2.559" FontSize="14" Margin="112,69,82,0" Height="41" Grid.ColumnSpan="2" Width="314"/>
-        <TextBox x:Name="txtBoxLogin" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="14" Height="21" TextChanged="TextBox_TextChanged" Margin="158,141,0,0" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="passwordBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontSize="14" Height="21" TextChanged="TextBox_TextChanged" Margin="158,194,0,0" Grid.ColumnSpan="2" FontFamily="Webdings"/>
-        <Label x:Name="label" Content="Логин:&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="57" Margin="158,115,0,0" Height="26" RenderTransformOrigin="0.456,-0.048" FontWeight="Bold"/>
-        <Label x:Name="label_Copy" Content="Пароль:&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.435,2.893" Margin="158,167,0,0" Height="27" FontWeight="Bold"/>
-        <Button x:Name="enterButt" Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Button_Click" Margin="158,220,0,0" Background="#FFB8EDCF"/>
-        <Button x:Name="regButt" Content="Регистрация" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="269,220,0,0" Click="Button1_Click" Background="#FFCBF2D3"/>
-        <Label x:Name="incorrectPassLabel" Content="Неправильный логин или пароль!" HorizontalAlignment="Left" Margin="158,261,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.072,-0.735" FontFamily="Segoe Print" Height="28" Foreground="Black" Background="{x:Null}" FontWeight="Bold" Visibility="Hidden"/>
+        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Введите логин и пароль либо зарегистрируйтесь в качестве нового ученика:" VerticalAlignment="Top" FontSize="14" Margin="86,70,86,0" Height="42" Width="314" HorizontalAlignment="Center"/>
+        <TextBox x:Name="txtBoxLogin" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="14" Height="21" TextChanged="TextBox_TextChanged" Margin="152,143,153,0"/>
+        <TextBox x:Name="passwordBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="14" Height="21" TextChanged="TextBox_TextChanged" Margin="152,196,153,0" FontFamily="Webdings"/>
+        <Label x:Name="label" Content="Логин:&#xA;" VerticalAlignment="Top" Width="57" Margin="152,117,298,0" Height="26" RenderTransformOrigin="0.456,-0.048" FontWeight="Bold"/>
+        <Label x:Name="label_Copy" Content="Пароль:&#xA;" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.435,2.893" Margin="152,169,298,0" Height="27" FontWeight="Bold"/>
+        <Button x:Name="enterButt" Content="Вход" VerticalAlignment="Top" Width="75" Click="Button_Click" Margin="152,222,280,0" Background="#FFB8EDCF"/>
+        <Button x:Name="regButt" Content="Регистрация" VerticalAlignment="Top" Width="90" Margin="264,222,153,0" Click="Button1_Click" Background="#FFCBF2D3"/>
+        <Label x:Name="incorrectPassLabel" Content="Неправильный логин или пароль!" HorizontalAlignment="Center"  Visibility="Hidden" Margin="152,247,148,0" VerticalAlignment="Top" FontFamily="Segoe Print" Height="28" Foreground="Black" Background="{x:Null}" FontWeight="Bold" Width="217"/>
     </Grid>
 </Window>

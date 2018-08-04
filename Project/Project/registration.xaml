@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:Project"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Project.registration"
         mc:Ignorable="d"
-        Title="Регистрация нового ученика" Height="223.5" Width="434.5"
-        MinHeight="223.5" MinWidth="434.5" MaxHeight="223.5">
+        Title="Регистрация нового ученика" Height="230" Width="450"
+        MinHeight="230" MinWidth="450" MaxHeight="223.5">
     <Window.Background>
         <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
     </Window.Background>
-    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,2,0">
+    <Grid>
         <Label x:Name="label" Content="Введите ФИО:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Придумайте логин:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Grid.ColumnSpan="1"/>
+        <Label x:Name="label1" Content="Придумайте логин:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="И пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" RenderTransformOrigin="0.121,-0.038"/>
         <Label x:Name="label3" Content="Выберите свой класс:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="nameBox" Height="23" Margin="130,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="NameBox_TextChanged"/>
@@ -23,7 +23,7 @@
             <ComboBoxItem Content="10"/>
             <ComboBoxItem Content="11"/>
         </ComboBox>
-        <Button x:Name="button" Grid.ColumnSpan="2" Style="{StaticResource btnStyle}" Content="Зарегистрироваться" Margin="158,137,0,0" VerticalAlignment="Top" Width="128" Click="Button_Click" HorizontalAlignment="Left" BorderBrush="Black" Background="#FFB4E4CA" Height="24"/>
-        <Label x:Name="incorrectPassLabel" Content="Заполните все поля!" HorizontalAlignment="Left" Margin="146,152,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Segoe Print" Visibility="Hidden" />
+        <Button x:Name="button" Style="{StaticResource btnStyle}" Content="Зарегистрироваться" Margin="165,137,141,0" VerticalAlignment="Top" Width="118" Click="Button_Click" HorizontalAlignment="Center" BorderBrush="Black" Background="#FFB4E4CA" Height="24" Grid.ColumnSpan="2"/>
+        <Label x:Name="incorrectPassLabel" Content="Заполните все поля!" HorizontalAlignment="Center" Margin="154,160,130,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Segoe Print" />
     </Grid>
 </Window>
