@@ -46,9 +46,9 @@ namespace Project
 
             try
             {
-                sqlQuery = "SELECT uk, password, name FROM User where login = '" + login + "' and DELETED_FLAG = 'N'";
+                sqlQuery = "SELECT * FROM User where login = '" + login + "' and DELETED_FLAG = 'N'";
                 dTable = DbManager.Execute(sqlQuery);
-                if (dTable.Rows.Count == 0 || dTable.Rows[0].ItemArray[1].ToString() != pass)
+                if (dTable.Rows.Count == 0 || dTable.Rows[0].ItemArray[2].ToString() != pass)
                 {
                     incorrectPassLabel.Visibility = Visibility.Visible;
                     return;
@@ -56,7 +56,7 @@ namespace Project
                 ((App)Application.Current).user = dTable;
                 personalAccWindows acc = new personalAccWindows
                 {
-                    Title = dTable.Rows[0].ItemArray[2].ToString()
+                    Title = dTable.Rows[0].ItemArray[3].ToString()
                 };
                 acc.Show();
                 this.Close();

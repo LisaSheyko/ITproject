@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Media;
 using System.Globalization;
 using System.Data;
+using System.Diagnostics;
 
 namespace Project
 {
@@ -26,10 +27,18 @@ namespace Project
         {
             InitializeComponent();
 
-            DataTable people = DbManager.Execute(@"select u.name from user u join grant g on u.grant_uk = g.uk
+            DataTable sql_res = DbManager.Execute(@"select u.name from user u join grant g on u.grant_uk = g.uk
                                                     where g.ccode = 'child'");
-            for (int i = 0; i < people.Rows.Count; ++i)
-                comboboxDisciple.Items.Add(people.Rows[i].ItemArray[0].ToString());
+            for (int i = 0; i < sql_res.Rows.Count; ++i)
+                comboboxDisciple.Items.Add(sql_res.Rows[i].ItemArray[0].ToString());
+            string user_grant = ((App)Application.Current).user.Rows[0].ItemArray[5].ToString(),
+                user_name = ((App)Application.Current).user.Rows[0].ItemArray[3].ToString();
+            sql_res = DbManager.Execute("select ccode from grant where uk = " + user_grant);
+            if ((string) sql_res.Rows[0].ItemArray[0] == "child")
+            {
+                comboboxDisciple.SelectedValue = user_name;
+                comboboxDisciple.IsEnabled = false;
+            }
 
             txtBlockStat.Text = @"Всего решено задач: 0
 Количество правильных ответов / общее количество: 0.0
@@ -192,8 +201,6 @@ namespace Project
 
         private void ComboboxDisciple_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            comboboxDisciple.SelectedValue = this.Title;
-            comboboxDisciple.IsEnabled = false;
         }
 
         private void TheoryBtn_Click(object sender, RoutedEventArgs e)
