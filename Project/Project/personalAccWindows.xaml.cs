@@ -18,26 +18,26 @@ using System.Diagnostics;
 
 namespace Project
 {
-    /// <summary>
-    /// Логика взаимодействия для personalAccWindows.xaml
-    /// </summary>
     public partial class personalAccWindows : Window
     {
         public personalAccWindows()
         {
             InitializeComponent();
-
-            DataTable sql_res = DbManager.Execute(@"select u.name from user u join grant g on u.grant_uk = g.uk
-                                                    where g.ccode = 'child'");
-            for (int i = 0; i < sql_res.Rows.Count; ++i)
-                comboboxDisciple.Items.Add(sql_res.Rows[i].ItemArray[0].ToString());
-            string user_grant = ((App)Application.Current).user.Rows[0].ItemArray[5].ToString(),
-                user_name = ((App)Application.Current).user.Rows[0].ItemArray[3].ToString();
-            sql_res = DbManager.Execute("select ccode from grant where uk = " + user_grant);
-            if ((string) sql_res.Rows[0].ItemArray[0] == "child")
+            DataTable sql_res;
+            if (((App)Application.Current).grant_ccode == "master")
             {
-                comboboxDisciple.SelectedValue = user_name;
-                comboboxDisciple.IsEnabled = false;
+                sql_res = DbManager.Execute(@"select u.name from user u join grant g on u.grant_uk = g.uk
+                                                    where g.ccode = 'child'");
+                for (int i = 0; i < sql_res.Rows.Count; ++i)
+                    comboboxDisciple.Items.Add(sql_res.Rows[i].ItemArray[0].ToString());
+            }
+            else
+            {
+                labTop.Content = "Выбор преподавателя:";
+                sql_res = DbManager.Execute(@"select u.name from user u join grant g on u.grant_uk = g.uk
+                                                    where g.ccode = 'master'");
+                for (int i = 0; i < sql_res.Rows.Count; ++i)
+                    comboboxDisciple.Items.Add(sql_res.Rows[i].ItemArray[0].ToString());
             }
 
             txtBlockStat.Text = @"Всего решено задач: 0
@@ -201,6 +201,10 @@ namespace Project
 
         private void ComboboxDisciple_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            button2.IsEnabled = true;
+            ((App)Application.Current).pair_name = comboboxDisciple.SelectedValue.ToString();
+            ((App)Application.Current).pair_uk = DbManager.Execute("select uk from user where name = '" +
+                ((App)Application.Current).pair_name + "'").Rows[0]["uk"].ToString();
         }
 
         private void TheoryBtn_Click(object sender, RoutedEventArgs e)
@@ -221,6 +225,28 @@ namespace Project
             T.exp_6.Visibility = Visibility.Hidden;
             T.Title = "Банк задач";
             T.ShowDialog();
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            string master_uk, child_uk;
+            if (textBox.Text != "")
+            {
+                if (((App)Application.Current).grant_ccode == "master")
+                {
+                    master_uk = ((App)Application.Current).uk;
+                    child_uk = ((App)Application.Current).pair_uk;
+                }
+                else
+                {
+                    child_uk = ((App)Application.Current).uk;
+                    master_uk = ((App)Application.Current).pair_uk;
+                }
+                DbManager.ExecuteNonQ("insert into chat_log (user_uk, master_uk, msg, time) values (" +
+                    child_uk + ", " + master_uk + ", '" + textBox.Text + "', '" + 
+                    System.DateTime.Now.ToShortTimeString() + " " + System.DateTime.Now.ToShortDateString() + "')");
+                textBox.Clear();
+            } 
         }
     }
 }

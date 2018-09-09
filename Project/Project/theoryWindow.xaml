@@ -1,9 +1,10 @@
-﻿<Window x:Class="Project.theoryWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Project.theoryWindow"
         mc:Ignorable="d"
         Title="Теоретический справочник" Height="450" Width="800">
     <Window.Background>
@@ -14,35 +15,43 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TreeView Margin="10,37,5,5"/>
+        <TreeView x:Name="treeView1" Margin="10,37,5,5">
+            <TreeView.Effect>
+                <DropShadowEffect/>
+            </TreeView.Effect>
+            <System:String>Тут</System:String>
+            <System:String>Будут</System:String>
+            <System:String>Расположены</System:String>
+            <System:String>Темы</System:String>
+        </TreeView>
         <ComboBox Margin="80,10,140,0" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2" IsEditable="True"/>
         <StackPanel Grid.Column="1" Margin="10,37,10,5" Background="White" Height="Auto" Width="Auto">
             <Expander x:Name="exp_1" Header="Рекомендованные учителем" IsExpanded="True">
                 <ListBox>
-                    <ListBoxItem>Тема №1</ListBoxItem>
-                    <ListBoxItem>Тема №2</ListBoxItem>
-                    <ListBoxItem>Тема №3</ListBoxItem>
+                    <ListBoxItem Content="Тема №1"/>
+                    <ListBoxItem Content="Тема №2"/>
+                    <ListBoxItem Content="Тема №3"/>
                 </ListBox>
             </Expander>
             <Expander x:Name="exp_2" Header="В процессе изучения">
-                <ListBox></ListBox>
+                <ListBox/>
             </Expander>
             <Expander x:Name="exp_3" Header="Остались вопросы">
                 <StackPanel>
-                    <TextBlock>Отметьте, что вам больше нравится</TextBlock>
-                    <CheckBox>WinForms</CheckBox>
-                    <CheckBox>WPF</CheckBox>
-                    <CheckBox>ASP.NET</CheckBox>
+                    <TextBlock><Run Text="Отметьте, что вам больше нравится"/></TextBlock>
+                    <CheckBox Content="WinForms"/>
+                    <CheckBox Content="WPF"/>
+                    <CheckBox Content="ASP.NET"/>
                 </StackPanel>
             </Expander>
             <Expander x:Name="exp_4" Header="Могут быть интересны">
-                <ListBox></ListBox>
+                <ListBox/>
             </Expander>
             <Expander x:Name="exp_5" Header="Последние">
-                <ListBox></ListBox>
+                <ListBox/>
             </Expander>
             <Expander x:Name="exp_6" Header="Избранные">
-                <ListBox></ListBox>
+                <ListBox/>
             </Expander>
             <Button Content="Добавить материалы" Style="{StaticResource btnStyle}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Button_Click_1" Background="#FFE3FCD4"/>
         </StackPanel>

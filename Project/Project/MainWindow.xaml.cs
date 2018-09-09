@@ -46,17 +46,21 @@ namespace Project
 
             try
             {
-                sqlQuery = "SELECT * FROM User where login = '" + login + "' and DELETED_FLAG = 'N'";
+                sqlQuery = "SELECT * FROM User where login = '" + login + "'";
                 dTable = DbManager.Execute(sqlQuery);
-                if (dTable.Rows.Count == 0 || dTable.Rows[0].ItemArray[2].ToString() != pass)
+                if (dTable.Rows.Count == 0 || dTable.Rows[0]["password"].ToString() != pass)
                 {
                     incorrectPassLabel.Visibility = Visibility.Visible;
                     return;
                 }
-                ((App)Application.Current).user = dTable;
+                ((App)Application.Current).uk = dTable.Rows[0]["UK"].ToString();
+                ((App)Application.Current).name = dTable.Rows[0]["name"].ToString();
+                sqlQuery = "select ccode from grant where uk = " + dTable.Rows[0]["grant_uk"].ToString();
+                dTable = DbManager.Execute(sqlQuery);
+                ((App)Application.Current).grant_ccode = dTable.Rows[0]["ccode"].ToString();
                 personalAccWindows acc = new personalAccWindows
                 {
-                    Title = dTable.Rows[0].ItemArray[3].ToString()
+                    Title = ((App)Application.Current).name
                 };
                 acc.Show();
                 this.Close();

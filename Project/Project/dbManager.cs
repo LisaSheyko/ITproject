@@ -29,10 +29,10 @@ namespace Project
                 m_dbConn.Open();
                 m_sqlCmd.Connection = m_dbConn;
 
-                m_sqlCmd.CommandText = @"CREATE TABLE IF NOT EXISTS User 
+                /*m_sqlCmd.CommandText = @"CREATE TABLE IF NOT EXISTS User 
                     (UK INTEGER PRIMARY KEY AUTOINCREMENT, LOGIN TEXT UNIQUE, PASSWORD TEXT, NAME TEXT,
                      CLASS INTEGER, GRANT_UK INTEGER)";
-                m_sqlCmd.ExecuteNonQuery();
+                m_sqlCmd.ExecuteNonQuery();*/
             }
             catch (SQLiteException ex)
             {

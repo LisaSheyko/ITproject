@@ -13,6 +13,7 @@ namespace Project
     /// </summary>
     public partial class App : Application
     {
-        public DataTable user;
+        //public DataTable user;
+        public string grant_ccode, name, uk, pair_uk, pair_name;
     }
 }

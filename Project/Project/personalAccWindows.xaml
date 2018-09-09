@@ -22,7 +22,7 @@
         <Button x:Name="taskBtn" Content="Задачи" Style="{StaticResource btnStyle}" Margin="194,10,0,0" Width="117" Height="31" VerticalAlignment="Top" BorderThickness="1" Padding="0" HorizontalAlignment="Left" Click="TaskBtn_Click" Background="#FF45B3C4"/>
         <TextBlock x:Name="textBlock" TextWrapping="Wrap" Background="White" Opacity="0.3" TextAlignment="Right" Margin="5,77,10,40" ScrollViewer.CanContentScroll="True"/>
         <TextBox x:Name="textBox" TextWrapping="Wrap" FontStyle="Italic" TextAlignment="Right" Margin="4,234,43,10" VerticalAlignment="Bottom" Height="25"/>
-        <Button x:Name="button2" Content=" Ок " Style="{StaticResource ResourceKey=btnStyle}" RenderTransformOrigin="1.053,0.52" Margin="283,234,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="28" Height="25" Background="#FFD4EBBF"/>
+        <Button x:Name="button2" Content=" Ок " Style="{StaticResource ResourceKey=btnStyle}" RenderTransformOrigin="1.053,0.52" Margin="283,234,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="28" Height="25" Background="#FFD4EBBF" IsEnabled="False" Click="Button2_Click"/>
         <Label x:Name="label" Content="Выберите режим:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="107"/>
         <RadioButton x:Name="radioButton" Content="Статистика" HorizontalAlignment="Left" Margin="122,52,0,0" VerticalAlignment="Top" Height="20" Checked="RadioButton_Checked"/>
         <RadioButton x:Name="radioButton1" Content="График" HorizontalAlignment="Left" Margin="206,52,0,0" VerticalAlignment="Top" Height="20" Checked="RadioButton1_Checked"/>
