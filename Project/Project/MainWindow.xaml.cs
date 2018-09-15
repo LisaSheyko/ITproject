@@ -37,7 +37,7 @@ namespace Project
         private void Button_Click(object sender, RoutedEventArgs e)
         { // Достаем и сверяем пароль
             DataTable dTable = new DataTable();
-            String sqlQuery, login = txtBoxLogin.Text, pass = passwordBox.Text;
+            String sqlQuery, login = txtBoxLogin.Text, pass = passwordBox.Text, uk, name;
             if (login == "" || pass == "")
             {
                 incorrectPassLabel.Visibility = Visibility.Visible;
@@ -53,14 +53,24 @@ namespace Project
                     incorrectPassLabel.Visibility = Visibility.Visible;
                     return;
                 }
-                ((App)Application.Current).uk = dTable.Rows[0]["UK"].ToString();
-                ((App)Application.Current).name = dTable.Rows[0]["name"].ToString();
+                uk = dTable.Rows[0]["UK"].ToString();
+                name = dTable.Rows[0]["name"].ToString();
                 sqlQuery = "select ccode from grant where uk = " + dTable.Rows[0]["grant_uk"].ToString();
                 dTable = DbManager.Execute(sqlQuery);
                 ((App)Application.Current).grant_ccode = dTable.Rows[0]["ccode"].ToString();
+                if (((App)Application.Current).grant_ccode == "master")
+                {
+                    ((App)Application.Current).master_uk = uk;
+                    ((App)Application.Current).master_name = name;
+                }
+                else
+                {
+                    ((App)Application.Current).child_name = name;
+                    ((App)Application.Current).child_uk = uk;
+                }
                 personalAccWindows acc = new personalAccWindows
                 {
-                    Title = ((App)Application.Current).name
+                    Title = name
                 };
                 acc.Show();
                 this.Close();

@@ -14,6 +14,6 @@ namespace Project
     public partial class App : Application
     {
         //public DataTable user;
-        public string grant_ccode, name, uk, pair_uk, pair_name;
+        public string grant_ccode, child_name, child_uk, master_uk, master_name;
     }
 }

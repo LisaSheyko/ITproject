@@ -201,10 +201,29 @@ namespace Project
 
         private void ComboboxDisciple_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            DataTable sql_res;
+            string pair_name, pair_uk;
             button2.IsEnabled = true;
-            ((App)Application.Current).pair_name = comboboxDisciple.SelectedValue.ToString();
-            ((App)Application.Current).pair_uk = DbManager.Execute("select uk from user where name = '" +
-                ((App)Application.Current).pair_name + "'").Rows[0]["uk"].ToString();
+            textBlock.Text = "";
+
+            pair_name = comboboxDisciple.SelectedValue.ToString();
+            pair_uk = DbManager.Execute("select uk from user where name = '" +
+                pair_name + "'").Rows[0]["uk"].ToString();
+            if (((App)Application.Current).grant_ccode == "master")
+            {
+                ((App)Application.Current).child_uk = pair_uk;
+                ((App)Application.Current).child_name = pair_name;
+            }
+            else
+            {
+                ((App)Application.Current).master_uk = pair_uk;
+                ((App)Application.Current).master_name = pair_name;
+            }
+            sql_res = DbManager.Execute("select * from chat_log where child_uk = '" +
+                ((App)Application.Current).child_uk + "' and master_uk = '" +
+                ((App)Application.Current).master_uk + "' order by time");
+            for (int i = 0; i < sql_res.Rows.Count; ++i)
+                textBlock.Text += sql_res.Rows[i]["msg"].ToString() + "\n";
         }
 
         private void TheoryBtn_Click(object sender, RoutedEventArgs e)
@@ -229,22 +248,12 @@ namespace Project
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            string master_uk, child_uk;
             if (textBox.Text != "")
             {
-                if (((App)Application.Current).grant_ccode == "master")
-                {
-                    master_uk = ((App)Application.Current).uk;
-                    child_uk = ((App)Application.Current).pair_uk;
-                }
-                else
-                {
-                    child_uk = ((App)Application.Current).uk;
-                    master_uk = ((App)Application.Current).pair_uk;
-                }
-                DbManager.ExecuteNonQ("insert into chat_log (user_uk, master_uk, msg, time) values (" +
-                    child_uk + ", " + master_uk + ", '" + textBox.Text + "', '" + 
-                    System.DateTime.Now.ToShortTimeString() + " " + System.DateTime.Now.ToShortDateString() + "')");
+                DbManager.ExecuteNonQ("insert into chat_log (child_uk, master_uk, msg, time) values (" +
+                    ((App)Application.Current).child_uk + ", " + ((App)Application.Current).master_uk
+                    + ", '" + textBox.Text + "', '" + System.DateTime.Now.ToShortTimeString() + 
+                    " " + System.DateTime.Now.ToShortDateString() + "')");
                 textBox.Clear();
             } 
         }
