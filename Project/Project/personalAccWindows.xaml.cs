@@ -40,10 +40,6 @@ namespace Project
                     comboboxDisciple.Items.Add(sql_res.Rows[i].ItemArray[0].ToString());
             }
 
-            txtBlockStat.Text = @"Всего решено задач: 0
-Количество правильных ответов / общее количество: 0.0
-Успешность решения после теории: 0.0
-Успешность решения без теории: 0.0";
             //Сгенерирум данные для графиков
             int Np = 30;
             double[] Data1 = new double[Np + 1];
@@ -187,13 +183,13 @@ namespace Project
             imgProgress.Source = new DrawingImage(aDrawingGroup);
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void RadioButtonSt_Checked(object sender, RoutedEventArgs e)
         {
             txtBlockStat.Visibility = Visibility.Visible;
             imgProgress.Visibility = Visibility.Hidden;
         }
 
-        private void RadioButton1_Checked(object sender, RoutedEventArgs e)
+        private void RadioButtonGr_Checked(object sender, RoutedEventArgs e)
         {
             txtBlockStat.Visibility = Visibility.Hidden;
             imgProgress.Visibility = Visibility.Visible;
@@ -202,28 +198,43 @@ namespace Project
         private void ComboboxDisciple_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataTable sql_res;
-            string pair_name, pair_uk;
-            button2.IsEnabled = true;
+            string targ_name, targ_uk, author_uk;
+            double all_right = 0, right2all = 0, afterT = 0, beforeT = 0;
+            BtnOk.IsEnabled = true;
+            textBox.IsEnabled = true;
+            radioButtonSt.IsEnabled = true;
+            radioButtonGr.IsEnabled = true;
             textBlock.Text = "";
 
-            pair_name = comboboxDisciple.SelectedValue.ToString();
-            pair_uk = DbManager.Execute("select uk from user where name = '" +
-                pair_name + "'").Rows[0]["uk"].ToString();
+            targ_name = comboboxDisciple.SelectedValue.ToString();
+            targ_uk = DbManager.Execute("select uk from user where name = '" +
+                targ_name + "'").Rows[0]["uk"].ToString();
             if (((App)Application.Current).grant_ccode == "master")
             {
-                ((App)Application.Current).child_uk = pair_uk;
-                ((App)Application.Current).child_name = pair_name;
+                ((App)Application.Current).child_uk = targ_uk;
+                ((App)Application.Current).child_name = targ_name;
+                author_uk = ((App)Application.Current).master_uk;
             }
             else
             {
-                ((App)Application.Current).master_uk = pair_uk;
-                ((App)Application.Current).master_name = pair_name;
+                ((App)Application.Current).master_uk = targ_uk;
+                ((App)Application.Current).master_name = targ_name;
+                author_uk = ((App)Application.Current).child_uk;
             }
-            sql_res = DbManager.Execute("select * from chat_log where child_uk = '" +
-                ((App)Application.Current).child_uk + "' and master_uk = '" +
-                ((App)Application.Current).master_uk + "' order by time");
+            sql_res = DbManager.Execute("select * from chat_log where author_uk in (" +
+                author_uk + ", " + targ_uk + ") and targ_uk in(" + author_uk + ", " + targ_uk 
+                + ") order by pk");
             for (int i = 0; i < sql_res.Rows.Count; ++i)
-                textBlock.Text += sql_res.Rows[i]["msg"].ToString() + "\n";
+            {
+                if (sql_res.Rows[i]["author_uk"].ToString() == targ_uk)
+                    textBlock.Text += targ_name + ": ";
+                textBlock.Text += sql_res.Rows[i]["msg"].ToString() + " \n";
+            }
+            // Собираем статистику
+            txtBlockStat.Text = "Всего решено задач: " + all_right.ToString() + "\n" +
+                "Количество правильно решенных / общее количество попыток: " + right2all.ToString() + "\n" +
+                "Успешность решения задач до изучения теории: " + beforeT.ToString() + "\n" +
+                "Успешность решения задач после изучения теории: " + afterT.ToString();
         }
 
         private void TheoryBtn_Click(object sender, RoutedEventArgs e)
@@ -246,14 +257,25 @@ namespace Project
             T.ShowDialog();
         }
 
-        private void Button2_Click(object sender, RoutedEventArgs e)
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
+            string author_uk, targ_uk;
             if (textBox.Text != "")
             {
-                DbManager.ExecuteNonQ("insert into chat_log (child_uk, master_uk, msg, time) values (" +
-                    ((App)Application.Current).child_uk + ", " + ((App)Application.Current).master_uk
-                    + ", '" + textBox.Text + "', '" + System.DateTime.Now.ToShortTimeString() + 
-                    " " + System.DateTime.Now.ToShortDateString() + "')");
+                if (((App)Application.Current).grant_ccode == "master")
+                {
+                    author_uk = ((App)Application.Current).master_uk;
+                    targ_uk = ((App)Application.Current).child_uk;
+                }
+                else
+                {
+                    targ_uk = ((App)Application.Current).master_uk;
+                    author_uk = ((App)Application.Current).child_uk;
+                }
+                DbManager.ExecuteNonQ("insert into chat_log (author_uk, targ_uk, msg, time) values (" +
+                    author_uk + ", " + targ_uk + ", '" + textBox.Text + "', '" 
+                    + System.DateTime.Now.ToShortTimeString() + " " + System.DateTime.Now.ToShortDateString() + "')");
+                textBlock.Text += textBox.Text + "\n";
                 textBox.Clear();
             } 
         }
