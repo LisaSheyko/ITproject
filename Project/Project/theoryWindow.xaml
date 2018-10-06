@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Project.theoryWindow"
         mc:Ignorable="d"
-        Title="Теоретический справочник" Height="450" Width="800">
+        Title="Теоретический справочник" Height="600" Width="800" WindowState="Maximized">
     <Window.Background>
         <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
     </Window.Background>
@@ -15,14 +15,20 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TreeView x:Name="treeView1" Margin="10,37,5,5">
+        <TreeView x:Name="tree" Margin="10,37,5,5">
             <TreeView.Effect>
                 <DropShadowEffect/>
             </TreeView.Effect>
-            <System:String>Тут</System:String>
-            <System:String>Будут</System:String>
-            <System:String>Расположены</System:String>
-            <System:String>Темы</System:String>
+            <TreeViewItem Header="Fruit">
+                <TreeViewItem Header="Lime"></TreeViewItem>
+                <TreeViewItem Header="Orange"></TreeViewItem>
+                <TreeViewItem Header="Apple"></TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Colors">
+                <TreeViewItem Header="Red"></TreeViewItem>
+                <TreeViewItem Header="Orange"></TreeViewItem>
+                <TreeViewItem Header="Green"></TreeViewItem>
+            </TreeViewItem>
         </TreeView>
         <ComboBox Margin="80,10,140,0" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2" IsEditable="True"/>
         <StackPanel Grid.Column="1" Margin="10,37,10,5" Background="White" Height="Auto" Width="Auto">

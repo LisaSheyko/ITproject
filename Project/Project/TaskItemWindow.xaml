@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-        Title="Номер/название задачи" Height="450" Width="800">
+        Title="Номер/название задачи" Height="600" Width="800" WindowState="Maximized">
     <Window.Background>
         <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
     </Window.Background>

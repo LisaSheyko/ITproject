@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-        Title="Интерфейс для добавления новых материалов" Height="600" Width="800">
+        Title="Интерфейс для добавления новых материалов" MinHeight="600" MinWidth="800" WindowState="Maximized">
     <Window.Background>
         <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
     </Window.Background>
@@ -28,12 +28,12 @@
             </Grid.ColumnDefinitions>
             <TreeView Margin="10"/>
             <Label Content="Название нового раздела:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="170,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216"/>
+            <TextBox Grid.Column="1" Height="23" Margin="170,13,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <Label Content="Варианты ответа:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="120,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+            <TextBox Grid.Column="1" Height="23" Margin="120,45,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <Label Content="Подсказка:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.382,-0.577"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="85,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301"/>
-            <Button Content="Добавить" Style="{StaticResource btnStyle}" FontSize="20" Background="#FF93CBB3" Grid.Column="1" HorizontalAlignment="Left" Margin="294,216,0,0" VerticalAlignment="Top"/>
+            <TextBox Grid.Column="1" Height="23" Margin="85,75,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <Button Content="Добавить" Style="{StaticResource btnStyle}" FontSize="20" Background="#FF93CBB3" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"/>
 
         </Grid>
     </Grid>

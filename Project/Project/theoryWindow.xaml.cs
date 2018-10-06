@@ -22,6 +22,17 @@ namespace Project
         public theoryWindow()
         {
             InitializeComponent();
+            TreeViewItem elem = new TreeViewItem
+            {
+                Header = "Test"
+            };
+            TreeViewItem sub_elem = new TreeViewItem
+            {
+                Header = "subTest"
+            };
+            elem.Items.Add(sub_elem);
+            tree.Items.Add(elem);
+            //tree.Items.Insert(0, elem);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -36,6 +47,7 @@ namespace Project
                 TheoryItemWindow Ti = new TheoryItemWindow();
                 Ti.ShowDialog();
             }
+            MessageBox.Show(tree.SelectedItem.ToString());
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

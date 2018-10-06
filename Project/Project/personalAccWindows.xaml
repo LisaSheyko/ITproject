@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project"
         x:Class="Project.personalAccWindows"
         mc:Ignorable="d"
-        Title="Личный кабинет" Height="315" Width="660" MinHeight="315" MinWidth="660">
+        Title="Личный кабинет" Height="600" Width="660" MinHeight="315" MinWidth="660" WindowState="Maximized">
     <Window.Background>
         <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
     </Window.Background>
