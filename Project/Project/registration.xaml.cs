@@ -17,40 +17,47 @@ using System.Data;
 
 namespace Project
 {
-    /// <summary>
-    /// Логика взаимодействия для registration.xaml
-    /// </summary>
     public partial class registration : Window
     {
         public registration()
         {
             InitializeComponent();
-            DataTable dTable = DbManager.Execute("select a.seq from sqlite_sequence a where a.name = 'User'");
+            // вытаскием следующий uk для нового пользователя
+            DataTable dTable = DbManager.Execute("select a.seq+1 from sqlite_sequence a where a.name = 'USER_SDIM'");
             logBox.Text = "User_" + dTable.Rows[0].ItemArray[0].ToString();
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            incorrectPassLabel.Visibility = Visibility.Hidden;
+            // заполняем существующие классы из справочника
+            dTable = DbManager.Execute("select distinct num from CLASS_SDIM order by num desc");
+            for (int i = 0; i < dTable.Rows.Count; ++i)
+                ClassNum.Items.Add(dTable.Rows[i].ItemArray[0]);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataTable dTable;
-            if (nameBox.Text == "" || logBox.Text == "" || passBox1.Text == "" || comboBox.Text == "")
+            if (nameBox.Text == "" || logBox.Text == "" || passBox1.Text == "" 
+                || ClassNum.Text == "" || ClassLett.Text == "")
             {
                 incorrectPassLabel.Visibility = Visibility.Visible;
                 return;
             }
-            dTable = DbManager.Execute("select * from user where login = '" + logBox.Text + "'");
+            dTable = DbManager.Execute("select * from user_sdim where login = '" + logBox.Text + "'");
             if (dTable.Rows.Count > 0)
             {
                 incorrectPassLabel.Content = "Логин занят!";
                 incorrectPassLabel.Visibility = Visibility.Visible;
                 return;
             }
-            DbManager.ExecuteNonQ("insert into user (login, password, name, class) values ('" +
-                logBox.Text + "','" + passBox1.Text + "','" + nameBox.Text + "'," + comboBox.Text + ")");
+            // вытаскиваем нужны UK из справочника
+            dTable = DbManager.Execute("select uk from class_sdim where num = " +
+                ClassNum.Text + " and letter = '" + ClassLett.Text + "'");
+            string class_uk = dTable.Rows[0].ItemArray[0].ToString();
+            // вставляем нового пользователя в таблицу
+            DbManager.ExecuteNonQ("insert into user_sdim (login, password, name, class_uk, help4pass) values ('" +
+                logBox.Text + "','" + passBox1.Text + "','" + nameBox.Text + "'," +
+                class_uk + ",'" + passBoxHelp.Text +"')");
+            // увеличиваем кол-во учеников в классе
+            DbManager.ExecuteNonQ("update class_sdim set count = (select count from class_sdim where uk = " +
+                class_uk + ") + 1 where uk = " + class_uk);
             this.Close();
         }
 
@@ -65,6 +72,21 @@ namespace Project
         }
 
         private void PassBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            incorrectPassLabel.Visibility = Visibility.Hidden;
+        }
+
+        private void ClassNum_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            incorrectPassLabel.Visibility = Visibility.Hidden;
+            ClassLett.Items.Clear();
+            DataTable dTable = DbManager.Execute("select letter from CLASS_SDIM where num = '" +
+                ClassNum.SelectedItem.ToString() + "' order by letter");
+            for (int i = 0; i < dTable.Rows.Count; ++i)
+                ClassLett.Items.Add(dTable.Rows[i].ItemArray[0]);
+        }
+
+        private void ClassLett_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             incorrectPassLabel.Visibility = Visibility.Hidden;
         }

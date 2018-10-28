@@ -46,16 +46,23 @@ namespace Project
 
             try
             {
-                sqlQuery = "SELECT * FROM User where login = '" + login + "'";
+                sqlQuery = "SELECT * FROM User_sdim where login = '" + login + "'";
                 dTable = DbManager.Execute(sqlQuery);
-                if (dTable.Rows.Count == 0 || dTable.Rows[0]["password"].ToString() != pass)
+                if (dTable.Rows.Count == 0)
                 {
+                    incorrectPassLabel.Content = "Логин не найден в базе";
+                    incorrectPassLabel.Visibility = Visibility.Visible;
+                    return;
+                }
+                else if (dTable.Rows[0]["password"].ToString() != pass)
+                {
+                    incorrectPassLabel.Content = "Неверный пароль.\nПодсказка: " + dTable.Rows[0]["help4pass"].ToString();
                     incorrectPassLabel.Visibility = Visibility.Visible;
                     return;
                 }
                 uk = dTable.Rows[0]["UK"].ToString();
                 name = dTable.Rows[0]["name"].ToString();
-                sqlQuery = "select ccode from grant where uk = " + dTable.Rows[0]["grant_uk"].ToString();
+                sqlQuery = "select ccode from grant_sdim where uk = " + dTable.Rows[0]["grant_uk"].ToString();
                 dTable = DbManager.Execute(sqlQuery);
                 ((App)Application.Current).grant_ccode = dTable.Rows[0]["ccode"].ToString();
                 if (((App)Application.Current).grant_ccode == "master")

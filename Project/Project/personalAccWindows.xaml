@@ -20,21 +20,21 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="theoryBtn" Content="Теоретический справочник" Style="{StaticResource btnStyle}" Margin="10,10,0,0" Width="179" Height="31" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Click="TheoryBtn_Click" Background="#FF7ED9D2"/>
         <Button x:Name="taskBtn" Content="Задачи" Style="{StaticResource btnStyle}" Margin="194,10,0,0" Width="117" Height="31" VerticalAlignment="Top" BorderThickness="1" Padding="0" HorizontalAlignment="Left" Click="TaskBtn_Click" Background="#FF45B3C4"/>
-        <Grid Margin="10,72,10,40" >
+        <Grid Margin="10,46,10,40" >
             <ScrollViewer>
-                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Background="White" Opacity="0.3" TextAlignment="Right" ScrollViewer.CanContentScroll="True"/>
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Background="White" Opacity="0.3" TextAlignment="Right" ScrollViewer.CanContentScroll="True" />
             </ScrollViewer>
         </Grid>
         <TextBox x:Name="textBox" TextWrapping="Wrap" FontStyle="Italic" TextAlignment="Right" Margin="4,234,43,10" VerticalAlignment="Bottom" Height="25" IsEnabled="False"/>
         <Button x:Name="BtnOk" Content=" Ок " Style="{StaticResource ResourceKey=btnStyle}" RenderTransformOrigin="1.053,0.52" Margin="283,234,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="28" Height="25" Background="#FFD4EBBF" IsEnabled="False" Click="BtnOk_Click"/>
-        <Label x:Name="label" Content="Выберите режим:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="107"/>
-        <RadioButton x:Name="radioButtonSt" Content="Статистика" HorizontalAlignment="Left" Margin="122,52,0,0" VerticalAlignment="Top" Height="20" Checked="RadioButtonSt_Checked" IsEnabled="False"/>
-        <RadioButton x:Name="radioButtonGr" Content="График" HorizontalAlignment="Left" Margin="206,52,0,0" VerticalAlignment="Top" Height="20" Checked="RadioButtonGr_Checked" IsEnabled="False"/>
         <Grid Grid.Column="1" Background="White">
-            <Image x:Name="imgProgress" Margin="10, 10, 10, 10" Visibility="Hidden"/>
-            <TextBlock x:Name="txtBlockStat" Margin="10,41,10,10" TextWrapping="Wrap" />
-            <Label x:Name="labTop" Content="Посмотреть результаты для " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="comboboxDisciple" Margin="181,10,5,0" VerticalAlignment="Top" Height="26" SelectionChanged="ComboboxDisciple_SelectionChanged"/>
+            <Image x:Name="imgProgress" Margin="10,72,10,10"/>
+            <TextBlock x:Name="txtBlockStat" Margin="10,72,10,10" TextWrapping="Wrap" />
+            <Label x:Name="labClass" Content="Выберите класс" Margin="65,10,164,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="comboboxClassNum" Margin="167,10,113,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Center" Width="46" SelectionChanged="comboboxClassNum_SelectionChanged"/>
+            <ComboBox x:Name="comboboxClassLet" Margin="218,10,62,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Center" Width="46" SelectionChanged="comboboxClassLet_SelectionChanged"/>
+            <Label x:Name="labChild" Content="Выберите ученика" Margin="10,41,204,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="comboboxDisciple" Margin="127,41,10,0" VerticalAlignment="Top" Height="26" SelectionChanged="ComboboxDisciple_SelectionChanged"/>
         </Grid>
     </Grid>
 </Window>

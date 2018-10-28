@@ -6,24 +6,24 @@
         xmlns:local="clr-namespace:Project"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Project.registration"
         mc:Ignorable="d"
-        Title="Регистрация нового ученика" Height="230" Width="450"
-        MinHeight="230" MinWidth="450" MaxHeight="223.5" WindowState="Maximized">
+        Title="Регистрация нового ученика"
+        MinHeight="260" MinWidth="450" MaxHeight="260"  WindowState="Maximized">
     <Window.Background>
         <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
     </Window.Background>
-    <Grid>
+    <Grid VerticalAlignment="Top" Margin="0,0,0,-1" Height="230">
         <Label x:Name="label" Content="Введите ФИО:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Придумайте логин:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="И пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" RenderTransformOrigin="0.121,-0.038"/>
-        <Label x:Name="label3" Content="Выберите свой класс:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Выберите свой класс:" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="nameBox" Height="23" Margin="130,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="NameBox_TextChanged"/>
         <TextBox x:Name="logBox" Height="23" Margin="130,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="LogBox_TextChanged"/>
         <TextBox x:Name="passBox1" Height="23" Margin="130,72,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="PassBox1_TextChanged"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="143,104,0,0" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged" Width="46">
-            <ComboBoxItem Content="10"/>
-            <ComboBoxItem Content="11"/>
-        </ComboBox>
-        <Button x:Name="button" Style="{StaticResource btnStyle}" Content="Зарегистрироваться" Margin="165,137,141,0" VerticalAlignment="Top" Width="118" Click="Button_Click" HorizontalAlignment="Center" BorderBrush="Black" Background="#FFB4E4CA" Height="24" Grid.ColumnSpan="2"/>
-        <Label x:Name="incorrectPassLabel" Content="Заполните все поля!" HorizontalAlignment="Center" Margin="154,160,130,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Segoe Print" />
+        <ComboBox x:Name="ClassNum" HorizontalAlignment="Left" Margin="170,128,0,0" VerticalAlignment="Top" Width="46" SelectionChanged="ClassNum_SelectionChanged"/>
+        <Button x:Name="button" Style="{StaticResource btnStyle}" Content="Зарегистрироваться" Margin="334,161,308,0" VerticalAlignment="Top" Width="118" Click="Button_Click" HorizontalAlignment="Center" BorderBrush="Black" Background="#FFB4E4CA" Height="24"/>
+        <Label x:Name="incorrectPassLabel" Content="Заполните все поля!" HorizontalAlignment="Center" Margin="324,184,296,0" VerticalAlignment="Top" FontFamily="Segoe Print" />
+        <ComboBox x:Name="ClassLett" HorizontalAlignment="Left" Margin="221,128,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="1.391,0.5" SelectionChanged="ClassLett_SelectionChanged"/>
+        <Label x:Name="HelpLabel" Content="Подсказка (опционально):" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,97,0,0" RenderTransformOrigin="0.121,-0.038"/>
+        <TextBox x:Name="passBoxHelp" Height="23" Margin="170,100,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Window>

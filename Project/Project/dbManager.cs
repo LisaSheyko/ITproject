@@ -29,7 +29,7 @@ namespace Project
                 m_dbConn.Open();
                 m_sqlCmd.Connection = m_dbConn;
 
-                /*m_sqlCmd.CommandText = @"CREATE TABLE IF NOT EXISTS User 
+                /*m_sqlCmd.CommandText = @"CREATE TABLE IF NOT EXISTS User_sdim 
                     (UK INTEGER PRIMARY KEY AUTOINCREMENT, LOGIN TEXT UNIQUE, PASSWORD TEXT, NAME TEXT,
                      CLASS INTEGER, GRANT_UK INTEGER)";
                 m_sqlCmd.ExecuteNonQuery();*/

@@ -26,16 +26,28 @@ namespace Project
             DataTable sql_res;
             if (((App)Application.Current).grant_ccode == "master")
             {
-                sql_res = DbManager.Execute(@"select u.name from user u join grant g on u.grant_uk = g.uk
-                                                    where g.ccode = 'child'");
+                sql_res = DbManager.Execute("select distinct num from CLASS_SDIM order by num desc");
+                for (int i = 0; i < sql_res.Rows.Count; ++i)
+                    comboboxClassNum.Items.Add(sql_res.Rows[i].ItemArray[0]);
+                sql_res = DbManager.Execute(@"select u.name from user_sdim u join grant_sdim g
+                                            on u.grant_uk = g.uk where g.ccode = 'child'");
                 for (int i = 0; i < sql_res.Rows.Count; ++i)
                     comboboxDisciple.Items.Add(sql_res.Rows[i].ItemArray[0].ToString());
             }
             else
             {
-                labTop.Content = "Выбор преподавателя:";
-                sql_res = DbManager.Execute(@"select u.name from user u join grant g on u.grant_uk = g.uk
-                                                    where g.ccode = 'master'");
+                labChild.Content = "Выберите учителя";
+                labClass.IsEnabled = false;
+                comboboxClassLet.IsEnabled = false;
+                comboboxClassNum.IsEnabled = false;
+                sql_res = DbManager.Execute("select num, letter from user_sdim u join class_sdim cl " +
+                    "on u.class_uk = cl.uk and u.uk = " + ((App)Application.Current).child_uk);
+                comboboxClassNum.Items.Add(sql_res.Rows[0]["num"].ToString());
+                comboboxClassNum.SelectedIndex = 0;
+                comboboxClassLet.Items.Add(sql_res.Rows[0]["letter"].ToString());
+                comboboxClassLet.SelectedIndex = 0;
+                sql_res = DbManager.Execute(@"select u.name from user_sdim u join grant_sdim g
+                                             on u.grant_uk = g.uk where g.ccode = 'master'");
                 for (int i = 0; i < sql_res.Rows.Count; ++i)
                     comboboxDisciple.Items.Add(sql_res.Rows[i].ItemArray[0].ToString());
             }
@@ -183,18 +195,6 @@ namespace Project
             imgProgress.Source = new DrawingImage(aDrawingGroup);
         }
 
-        private void RadioButtonSt_Checked(object sender, RoutedEventArgs e)
-        {
-            txtBlockStat.Visibility = Visibility.Visible;
-            imgProgress.Visibility = Visibility.Hidden;
-        }
-
-        private void RadioButtonGr_Checked(object sender, RoutedEventArgs e)
-        {
-            txtBlockStat.Visibility = Visibility.Hidden;
-            imgProgress.Visibility = Visibility.Visible;
-        }
-
         private void ComboboxDisciple_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataTable sql_res;
@@ -202,33 +202,34 @@ namespace Project
             double all_right = 0, right2all = 0, afterT = 0, beforeT = 0;
             BtnOk.IsEnabled = true;
             textBox.IsEnabled = true;
-            radioButtonSt.IsEnabled = true;
-            radioButtonGr.IsEnabled = true;
             textBlock.Text = "";
 
-            targ_name = comboboxDisciple.SelectedValue.ToString();
-            targ_uk = DbManager.Execute("select uk from user where name = '" +
-                targ_name + "'").Rows[0]["uk"].ToString();
-            if (((App)Application.Current).grant_ccode == "master")
+            if (!comboboxDisciple.Items.IsEmpty)
             {
-                ((App)Application.Current).child_uk = targ_uk;
-                ((App)Application.Current).child_name = targ_name;
-                author_uk = ((App)Application.Current).master_uk;
-            }
-            else
-            {
-                ((App)Application.Current).master_uk = targ_uk;
-                ((App)Application.Current).master_name = targ_name;
-                author_uk = ((App)Application.Current).child_uk;
-            }
-            sql_res = DbManager.Execute("select * from chat_log where author_uk in (" +
-                author_uk + ", " + targ_uk + ") and targ_uk in(" + author_uk + ", " + targ_uk 
-                + ") order by pk");
-            for (int i = 0; i < sql_res.Rows.Count; ++i)
-            {
-                if (sql_res.Rows[i]["author_uk"].ToString() == targ_uk)
-                    textBlock.Text += targ_name + ": ";
-                textBlock.Text += sql_res.Rows[i]["msg"].ToString() + " \n";
+                targ_name = comboboxDisciple.SelectedValue.ToString();
+                targ_uk = DbManager.Execute("select uk from user_sdim where name = '" +
+                    targ_name + "'").Rows[0]["uk"].ToString();
+                if (((App)Application.Current).grant_ccode == "master")
+                {
+                    ((App)Application.Current).child_uk = targ_uk;
+                    ((App)Application.Current).child_name = targ_name;
+                    author_uk = ((App)Application.Current).master_uk;
+                }
+                else
+                {
+                    ((App)Application.Current).master_uk = targ_uk;
+                    ((App)Application.Current).master_name = targ_name;
+                    author_uk = ((App)Application.Current).child_uk;
+                }
+                sql_res = DbManager.Execute("select * from chat_log where author_uk in (" +
+                    author_uk + ", " + targ_uk + ") and targ_uk in(" + author_uk + ", " + targ_uk
+                    + ") order by pk");
+                for (int i = 0; i < sql_res.Rows.Count; ++i)
+                {
+                    if (sql_res.Rows[i]["author_uk"].ToString() == targ_uk)
+                        textBlock.Text += targ_name + ": ";
+                    textBlock.Text += sql_res.Rows[i]["msg"].ToString() + " \n";
+                }
             }
             // Собираем статистику
             txtBlockStat.Text = "Всего решено задач: " + all_right.ToString() + "\n" +
@@ -278,6 +279,29 @@ namespace Project
                 textBlock.Text += textBox.Text + "\n";
                 textBox.Clear();
             } 
+        }
+
+        private void comboboxClassNum_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            comboboxClassLet.Items.Clear();
+            comboboxDisciple.Items.Clear();
+            DataTable dTable = DbManager.Execute("select letter from CLASS_SDIM where num = '" +
+                comboboxClassNum.SelectedItem.ToString() + "' order by letter");
+            for (int i = 0; i < dTable.Rows.Count; ++i)
+                comboboxClassLet.Items.Add(dTable.Rows[i].ItemArray[0]);
+        }
+
+        private void comboboxClassLet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            comboboxDisciple.Items.Clear();
+            if (!comboboxClassLet.Items.IsEmpty)
+            {
+                DataTable dTable = DbManager.Execute("select name from USER_SDIM u join CLASS_SDIM cl" +
+                    " on u.class_uk = cl.uk and cl.num = " + comboboxClassNum.SelectedValue.ToString() +
+                    " and cl.letter = '" + comboboxClassLet.SelectedValue.ToString() + "'");
+                for (int i = 0; i < dTable.Rows.Count; ++i)
+                    comboboxDisciple.Items.Add(dTable.Rows[i].ItemArray[0]);
+            }
         }
     }
 }
