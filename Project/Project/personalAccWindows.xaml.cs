@@ -25,7 +25,7 @@ namespace Project
             InitializeComponent();
             DataTable sql_res;
             if (((App)Application.Current).grant_ccode == "master")
-            {
+            { // для учителя заполняем все возможные номера классов
                 sql_res = DbManager.Execute("select distinct num from CLASS_SDIM order by num desc");
                 for (int i = 0; i < sql_res.Rows.Count; ++i)
                     comboboxClassNum.Items.Add(sql_res.Rows[i].ItemArray[0]);
@@ -35,7 +35,7 @@ namespace Project
                     comboboxDisciple.Items.Add(sql_res.Rows[i].ItemArray[0].ToString());
             }
             else
-            {
+            { // для ученика выкллючаем все фильтры, но вписываем туда его класс
                 labChild.Content = "Выберите учителя";
                 labClass.IsEnabled = false;
                 comboboxClassLet.IsEnabled = false;
@@ -200,12 +200,13 @@ namespace Project
             DataTable sql_res;
             string targ_name, targ_uk, author_uk;
             double all_right = 0, right2all = 0, afterT = 0, beforeT = 0;
-            BtnOk.IsEnabled = true;
-            textBox.IsEnabled = true;
-            textBlock.Text = "";
 
             if (!comboboxDisciple.Items.IsEmpty)
-            {
+            { // если мы заполнили возможных учеников
+				BtnOk.IsEnabled = true;
+				textBox.IsEnabled = true;
+				textBlock.Text = "";
+				
                 targ_name = comboboxDisciple.SelectedValue.ToString();
                 targ_uk = DbManager.Execute("select uk from user_sdim where name = '" +
                     targ_name + "'").Rows[0]["uk"].ToString();
@@ -221,6 +222,7 @@ namespace Project
                     ((App)Application.Current).master_name = targ_name;
                     author_uk = ((App)Application.Current).child_uk;
                 }
+				// достаем все сообщения и выводим их в окне
                 sql_res = DbManager.Execute("select * from chat_log where author_uk in (" +
                     author_uk + ", " + targ_uk + ") and targ_uk in(" + author_uk + ", " + targ_uk
                     + ") order by pk");

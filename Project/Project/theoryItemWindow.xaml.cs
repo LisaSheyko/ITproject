@@ -18,9 +18,6 @@ using System.Windows.Xps;
 
 namespace Project
 {
-    /// <summary>
-    /// Логика взаимодействия для theoryItemWindow.xaml
-    /// </summary>
     public partial class TheoryItemWindow : Window
     {
         public TheoryItemWindow()

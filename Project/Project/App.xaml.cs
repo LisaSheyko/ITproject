@@ -8,12 +8,9 @@ using System.Windows;
 
 namespace Project
 {
-    /// <summary>
-    /// Логика взаимодействия для App.xaml
-    /// </summary>
     public partial class App : Application
     {
-        //public DataTable user;
+        // права пользователя, имя и uk ученика/учителя
         public string grant_ccode, child_name, child_uk, master_uk, master_name;
     }
 }

@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Project
 {
-    /// <summary>
-    /// Логика взаимодействия для theoryWindow.xaml
-    /// </summary>
     public partial class theoryWindow : Window
     {
         public theoryWindow()

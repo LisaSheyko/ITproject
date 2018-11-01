@@ -18,9 +18,6 @@ using System.Windows.Xps;
 
 namespace Project
 {
-    /// <summary>
-    /// Логика взаимодействия для addNewWindow.xaml
-    /// </summary>
     public partial class addNewWindow : Window
     {
         public addNewWindow()
