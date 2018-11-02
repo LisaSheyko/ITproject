@@ -37,4 +37,6 @@ E:\ITproject\Project\Project\obj\Release\Project.csproj.CoreCompileInputs.cache
 E:\ITproject\Project\Project\obj\Release\Project.csproj.CopyComplete
 E:\ITproject\Project\Project\obj\Release\Project.exe
 E:\ITproject\Project\Project\obj\Release\Project.pdb
-E:\ITproject\Project\Project\obj\Release\Project.csprojResolveAssemblyReference.cache
+E:\ITproject\Project\Project\obj\Release\Project.csprojAssemblyReference.cache
+E:\ITproject\Project\Project\obj\Release\addNewWindow.g.cs
+E:\ITproject\Project\Project\obj\Release\addNewWindow.baml

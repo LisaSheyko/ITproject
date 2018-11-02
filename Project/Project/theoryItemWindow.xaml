@@ -10,11 +10,14 @@
         <ImageBrush ImageSource="Files/grad_1.jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid>
-        <DocumentViewer x:Name="DocV" Margin="10,10,10,50" VerticalAlignment="Top" />
-        <Button Content="Все понятно!" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button_Click" Height="29" Width="94" Margin="0,0,10,10" Background="#FF8BC1A7" BorderBrush="Black"/>
-        <Button Content="Перейти к задачам" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button_Click" Height="29" Margin="0,0,120,10" Background="#FFC1DAB0" BorderBrush="Black"/>
-        <Button Content="Остались вопросы" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="119" Height="29" Click="Button_Click" Background="#FF75BCA9" BorderBrush="Black"/>
-        <Button Content="⍟" HorizontalAlignment="Left" Margin="134,0,0,0" VerticalAlignment="Bottom" FontSize="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF646464"/>
-        <Button x:Name="SettBtn" Content="✐" HorizontalAlignment="Left" Margin="175,0,0,8" VerticalAlignment="Bottom" FontSize="22" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF646464"/>
+        <DocumentViewer x:Name="DocV" Margin="10,10,10,74" />
+        <Button x:Name="AllRbtn" Content="Все понятно!" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="29" Width="94" Margin="0,0,10,10" Background="#FF8BC1A7" BorderBrush="Black" Click="AllRbtn_Click"/>
+        <Button x:Name="TaskBtn" Content="Перейти к задачам" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="29" Margin="0,0,120,10" Background="#FFC1DAB0" BorderBrush="Black"/>
+        <Button x:Name="QueBtn" Content="Остались вопросы" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="119" Height="29" Background="#FF75BCA9" BorderBrush="Black" Click="QueBtn_Click"/>
+        <Button x:Name="FavBtn" Content="⍟" HorizontalAlignment="Left" Margin="134,0,0,0" VerticalAlignment="Bottom" FontSize="36" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF646464" Click="FavBtn_Click"/>
+        <Button x:Name="SettBtn" Visibility="Hidden" Content="✐" HorizontalAlignment="Left" Margin="175,0,0,8" VerticalAlignment="Bottom" FontSize="22" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF646464"/>
+        <TextBox x:Name="TxtBoxChat" TextWrapping="Wrap" FontStyle="Italic" TextAlignment="Right" Margin="243,0,43,44" VerticalAlignment="Bottom" Height="25"/>
+        <Button x:Name="BtnOkChat" Content=" Ок " Style="{StaticResource ResourceKey=btnStyle}" RenderTransformOrigin="1.053,0.52" Margin="0,0,10,44" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="28" Height="25" Background="#FFD4EBBF" Click="BtnOkChat_Click"/>
+        <Label Content="Отправить в чат сообщение по теории:" HorizontalAlignment="Left" Margin="12,0,0,43" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

@@ -15,40 +15,21 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TreeView x:Name="tree" Margin="10,37,5,5">
+        <TreeView x:Name="Tree" Margin="10,37,5,5">
             <TreeView.Effect>
                 <DropShadowEffect/>
             </TreeView.Effect>
-            <TreeViewItem Header="Fruit">
-                <TreeViewItem Header="Lime"></TreeViewItem>
-                <TreeViewItem Header="Orange"></TreeViewItem>
-                <TreeViewItem Header="Apple"></TreeViewItem>
-            </TreeViewItem>
-            <TreeViewItem Header="Colors">
-                <TreeViewItem Header="Red"></TreeViewItem>
-                <TreeViewItem Header="Orange"></TreeViewItem>
-                <TreeViewItem Header="Green"></TreeViewItem>
-            </TreeViewItem>
         </TreeView>
-        <ComboBox Margin="80,10,140,0" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2" IsEditable="True"/>
+        <ComboBox x:Name="ComboElem" Margin="80,10,140,0" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2" IsEditable="True"/>
         <StackPanel Grid.Column="1" Margin="10,37,10,5" Background="White" Height="Auto" Width="Auto">
-            <Expander x:Name="exp_1" Header="Рекомендованные учителем" IsExpanded="True">
-                <ListBox>
-                    <ListBoxItem Content="Тема №1"/>
-                    <ListBoxItem Content="Тема №2"/>
-                    <ListBoxItem Content="Тема №3"/>
-                </ListBox>
+            <Expander x:Name="exp_1" Header="Заданные учителем" IsExpanded="True">
+                <ListBox x:Name="hwlst"/>
             </Expander>
             <Expander x:Name="exp_2" Header="В процессе изучения">
                 <ListBox/>
             </Expander>
             <Expander x:Name="exp_3" Header="Остались вопросы">
-                <StackPanel>
-                    <TextBlock><Run Text="Отметьте, что вам больше нравится"/></TextBlock>
-                    <CheckBox Content="WinForms"/>
-                    <CheckBox Content="WPF"/>
-                    <CheckBox Content="ASP.NET"/>
-                </StackPanel>
+                <ListBox x:Name="quelst"/>
             </Expander>
             <Expander x:Name="exp_4" Header="Могут быть интересны">
                 <ListBox/>
@@ -57,11 +38,11 @@
                 <ListBox/>
             </Expander>
             <Expander x:Name="exp_6" Header="Избранные">
-                <ListBox/>
+                <ListBox x:Name="favlst"/>
             </Expander>
-            <Button Content="Добавить материалы" Style="{StaticResource btnStyle}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Button_Click_1" Background="#FFE3FCD4"/>
+            <Button Content="Добавить материалы" x:Name="AddBtn" Style="{StaticResource btnStyle}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="#FFE3FCD4" Click="AddBtn_Click"/>
         </StackPanel>
         <Button Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="125" Height="22" Content="Перейти" Click="Button_Click" Background="#FF51B0B6"/>
-
+        <Button x:Name="HomeBtn" Content="🏠" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="24" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF111111" Click="HomeBtn_Click"/>
     </Grid>
 </Window>

@@ -35,7 +35,7 @@ namespace Project
                     comboboxDisciple.Items.Add(sql_res.Rows[i].ItemArray[0].ToString());
             }
             else
-            { // для ученика выкллючаем все фильтры, но вписываем туда его класс
+            { // для ученика выключаем все фильтры, но вписываем туда его класс
                 labChild.Content = "Выберите учителя";
                 labClass.IsEnabled = false;
                 comboboxClassLet.IsEnabled = false;
@@ -199,7 +199,7 @@ namespace Project
         {
             DataTable sql_res;
             string targ_name, targ_uk, author_uk;
-            double all_right = 0, right2all = 0, afterT = 0, beforeT = 0;
+            string all_right, right2all, afterT, beforeT;
 
             if (!comboboxDisciple.Items.IsEmpty)
             { // если мы заполнили возможных учеников
@@ -234,30 +234,82 @@ namespace Project
                 }
             }
             // Собираем статистику
-            txtBlockStat.Text = "Всего решено задач: " + all_right.ToString() + "\n" +
-                "Количество правильно решенных / общее количество попыток: " + right2all.ToString() + "\n" +
-                "Успешность решения задач до изучения теории: " + beforeT.ToString() + "\n" +
-                "Успешность решения задач после изучения теории: " + afterT.ToString();
+            DataTable res = DbManager.Execute("select count(*) from (select task_uk from progress_log" +
+                " where status_uk = 1)");
+            all_right = res.Rows[0].ItemArray[0].ToString();
+            res = DbManager.Execute("select count(*) from (select task_uk from progress_log" +
+                " where status_uk = 2)");
+            right2all = res.Rows[0].ItemArray[0].ToString();
+            res = DbManager.Execute("select count(*) from (select theory_uk from progress_log" +
+                " where status_uk = 1)");
+            beforeT = res.Rows[0].ItemArray[0].ToString();
+            res = DbManager.Execute("select count(*) from (select theory_uk from progress_log" +
+                " where status_uk = 5)");
+            afterT = res.Rows[0].ItemArray[0].ToString();
+            txtBlockStat.Text = "Верных попыток решения задач: " + all_right + "\n" +
+                "Неверных попыток: " + right2all + "\n" +
+                "Изучено тем: " + beforeT + "\n" +
+                "Тем, по которым есть вопросы: " + afterT;
         }
 
         private void TheoryBtn_Click(object sender, RoutedEventArgs e)
         {
+            ((App)Application.Current).TaskMode = false;
+            ((App)Application.Current).class_num = comboboxClassNum.Text;
+            ((App)Application.Current).class_let = comboboxClassLet.Text;
+            if (((App)Application.Current).grant_ccode == "master" && (comboboxDisciple.Text == ""))
+            {
+                ((App)Application.Current).child_uk = "";
+                ((App)Application.Current).child_name = "";
+            }
+            else if (comboboxDisciple.Text == "")
+            {
+                ((App)Application.Current).master_name = "";
+                ((App)Application.Current).master_uk = "";
+            }
             theoryWindow T = new theoryWindow();
-            T.ShowDialog();
+            if (((App)Application.Current).grant_ccode == "master")
+            {
+                T.exp_1.Header = "Домашнее задание";
+            }
+            T.Show();
+            this.Close();
         }
 
         private void TaskBtn_Click(object sender, RoutedEventArgs e)
         {
-            theoryWindow T = new theoryWindow();
-            T.exp_1.Header = "Заданные учителем";
+            ((App)Application.Current).TaskMode = true;
+            if (((App)Application.Current).grant_ccode == "master" && (comboboxDisciple.Text == ""))
+            {
+                ((App)Application.Current).child_uk = "";
+                ((App)Application.Current).child_name = "";
+            }
+            else if (comboboxDisciple.Text == "")
+            {
+                ((App)Application.Current).master_name = "";
+                ((App)Application.Current).master_uk = "";
+            }
+            theoryWindow T = new theoryWindow
+            {
+                Title = "Банк задач"
+            };
             T.exp_2.Header = "Неправильно решенные";
-            T.exp_3.Header = "Рекомендованные";
-            T.exp_4.Header = "Последние";
-            T.exp_5.Header = "Избранные";
-            T.exp_6.IsEnabled = false;
+            T.exp_3.Header = "Последние";
+            T.exp_4.Header = "Избранные";
+            T.exp_5.Visibility = Visibility.Hidden;
             T.exp_6.Visibility = Visibility.Hidden;
-            T.Title = "Банк задач";
-            T.ShowDialog();
+            ((App)Application.Current).class_num = comboboxClassNum.Text;
+            ((App)Application.Current).class_let = comboboxClassLet.Text;
+            if (((App)Application.Current).grant_ccode == "master")
+            {
+                T.exp_1.Header = "Домашнее задание";
+            }
+            else
+            {
+                T.exp_1.Header = "Заданные учителем";
+            }
+            T.Show();
+            this.Close();
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
@@ -296,7 +348,7 @@ namespace Project
         private void comboboxClassLet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             comboboxDisciple.Items.Clear();
-            if (!comboboxClassLet.Items.IsEmpty)
+            if (!comboboxClassLet.Items.IsEmpty && ((App)Application.Current).grant_ccode == "master")
             {
                 DataTable dTable = DbManager.Execute("select name from USER_SDIM u join CLASS_SDIM cl" +
                     " on u.class_uk = cl.uk and cl.num = " + comboboxClassNum.SelectedValue.ToString() +
